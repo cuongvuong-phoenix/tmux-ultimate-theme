@@ -70,6 +70,7 @@ main() {
 
     # Optionals
     local show_prefix=$(get_tmux_options "@ultimate-theme-show-prefix" true)
+    local show_cpu_mem_info=$(get_tmux_options "@ultimate-theme-show-cpu-mem-info" true)
     local show_date_time=$(get_tmux_options "@ultimate-theme-show-date-time" true)
     local show_network_id=$(get_tmux_options "@ultimate-theme-show-network-id" true)
     local show_network_ip_address=$(get_tmux_options "@ultimate-theme-show-network-ip-address" false)
@@ -135,6 +136,13 @@ main() {
         # tmux set -ga status-right "#[bg=${power_bg},fg=${BLACK},nobold,nounderscore,noitalics]#{?client_prefix,${powerline_right_icon},}"
         tmux set -ga status-right "#[bg=${BLACK},fg=${PINK}]#{?client_prefix, ${prefix_symbol} ,}"
         power_bg=${BLACK}
+    fi
+
+    # CPU & MEM info
+    if $show_cpu_mem_info; then
+        tmux set -ga status-right "#[bg=${power_bg},fg=${MAGENTA},nobold,nounderscore,noitalics]${powerline_right_icon}"
+        tmux set -ga status-right "#[bg=${MAGENTA},fg=${WHITE}] $(${CURRENT_DIR}/cpu_mem_info.sh)"
+        power_bg=${MAGENTA}
     fi
 
     # Date & Time
