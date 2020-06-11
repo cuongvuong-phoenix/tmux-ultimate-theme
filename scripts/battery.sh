@@ -19,7 +19,7 @@ get_battery_status() {
     local status=""
 
     local discharing_icon=$(get_tmux_options "@ultimate-theme-battery-discharging-icon" "")
-    local ac_icon=$(get_tmux_options "@ultimate-theme-battery-ac-icon" "")
+    local ac_icon=$(get_tmux_options "@ultimate-theme-battery-ac-icon" "")
 
     case $(uname -s) in
         Linux)
@@ -35,9 +35,9 @@ get_battery_status() {
     esac
 
     if [ $status =  "discharging" ]; then
-        echo "${discharing_icon}"
+        echo "${discharing_icon} "
     else
-        echo "${ac_icon}"
+        echo "${ac_icon} "
     fi
 }
 

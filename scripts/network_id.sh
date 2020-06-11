@@ -45,11 +45,11 @@ main()
 	done
 
     if [ $network = "Offline" ]; then
-        echo "$network "
+        echo "$network  "
     elif [ $network = "Ethernet" ]; then
-        echo "$network ﯱ"
+        echo "$network ﯱ "
     else
-        echo "$network "
+        echo "$network  "
     fi
 }
 
