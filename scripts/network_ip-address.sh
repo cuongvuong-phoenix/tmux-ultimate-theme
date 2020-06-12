@@ -2,15 +2,12 @@
 
 get_ip_address() {
     case $(uname -s) in
-        Linux)
+        Linux|Darwin)
             if ip route get 1 > /dev/null 2>&1; then
                 echo $(ip route get 1 | sed -nr "s/^.*src ([0-9.]*) .*$/\1/p")
             else
                 echo "127.0.0.1"
             fi
-        ;;
-
-        Darwin)
         ;;
 
 		CYGWIN*|MINGW32*|MSYS*|MINGW*)

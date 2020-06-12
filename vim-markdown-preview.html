@@ -1,0 +1,400 @@
+<h1>Tmux Ultimate theme</h1>
+
+<p>A dark theme for <a href="https://github.com/tmux/tmux/wiki">tmux</a>&rsquo;s status bar.</p>
+
+<h2>Table of Contents</h2>
+
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a>
+
+<ul>
+<li><a href="#installation-with-tmux-plugin-manager-recommended">Installation with Tmux Plugin Manager</a></li>
+<li><a href="#manual-installation">Manual Installation</a></li>
+</ul>
+</li>
+<li><a href="#list-os-support">List OS support</a></li>
+<li><a href="#configuration">Configuration</a>
+
+<ul>
+<li><a href="#color">Color</a></li>
+<li><a href="#optional">Optional</a></li>
+<li><a href="#format-information">Format information</a></li>
+<li><a href="#iconsymbol">Icon/Symbol</a></li>
+</ul>
+</li>
+<li><a href="#known-issues">Known Issues</a></li>
+</ol>
+
+
+<h2>Introduction</h2>
+
+<p><img src="./demo.png" alt="Demo image" /></p>
+
+<p>This theme is based on some features of <a href="https://github.com/dracula/tmux">Dracula tmux&rsquo;s theme</a>.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li><strong>Tmux</strong> <strong><em>version 2.5+</em></strong>, running inside Linux, Mac, OpenBSD.</li>
+<li><p>For <strong>Linux</strong> &amp; <strong>OpenBSD</strong>:</p>
+
+<ul>
+<li><strong><em>cut</em></strong>, <strong><em>tr</em></strong>, <strong><em>grep</em></strong>, <strong><em>sed</em></strong>, <strong><em>awk</em></strong>, <strong><em>iw</em></strong>, <strong><em>ip</em></strong>, <strong><em>jq</em></strong>, <strong><em>sysstat</em></strong> (for <em>mpstat</em> command), <strong><em>procps</em></strong> (for <em>free</em> command).</li>
+<li><strong><em>bash</em></strong>.
+
+<blockquote><p>Most of these packages are already inside of your distro. You can check for each one by running command <code>$ command -v &lt;name of package&gt;</code></p></blockquote></li>
+</ul>
+</li>
+<li><p>For <strong>Mac</strong>:</p>
+
+<ul>
+<li><strong><em>cut</em></strong>, <strong><em>grep</em></strong>, <strong><em>sed</em></strong>, <strong><em>pmset</em></strong></li>
+<li><strong><em>bash</em></strong>.</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/ryanoasis/nerd-fonts"><strong>Nerd Font</strong></a> (mine is <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode"><strong><em>FiraCode Nerd Font</em></strong></a>).</p></li>
+<li>A <strong>Terminal</strong> that support <strong>True color</strong> (mine is <a href="https://github.com/alacritty/alacritty"><strong><em>Alacritty</em></strong></a> with ligatures support).
+
+<blockquote><p>Remember to <a href="https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/">turn it on inside <strong>Tmux</strong></a></p></blockquote></li>
+</ul>
+
+
+<h2>Installation</h2>
+
+<blockquote><p>Only choose 1 of 2 methods.</p></blockquote>
+
+<h3>Installation with <a href="https://github.com/tmux-plugins/tpm">Tmux Plugin Manager</a> (recommended)</h3>
+
+<ul>
+<li><p>Add plugin to the list of TPM plugins in your <code>.tmux.conf</code>:</p>
+
+<p><code>shell
+set -g @plugin 'vuong-cuong-phoenix/tmux-ultimate-theme'
+</code></p></li>
+<li><p>Reload your <code>.tmux.conf</code>:</p>
+
+<p><code>shell
+$ tmux source &lt;path to your .tmux.conf file&gt;
+</code></p></li>
+<li><p>Install the plugin by <code>prefix + I</code></p></li>
+</ul>
+
+
+<h3>Manual Installation</h3>
+
+<ul>
+<li>Clone the repo:
+<code>shell
+$ git clone https://github.com/vuong-cuong-phoenix/tmux-ultimate-theme.git &lt;your path&gt;
+</code></li>
+<li><p>Add this line to the bottom of your <code>.tmux.conf</code>:</p>
+
+<p><code>shell
+run-shell &lt;your path&gt;/tmux-ultimate-theme.tmux
+</code></p></li>
+<li><p>Reload your <code>.tmux.conf</code>:
+<code>shell
+$ tmux source &lt;path to your .tmux.conf file&gt;
+</code></p></li>
+</ul>
+
+
+<h2>List OS support</h2>
+
+<table>
+<thead>
+<tr>
+<th> <strong>Feature</strong>                                                                    </th>
+<th style="text-align:center;"> <strong>Linux/OpenBSD</strong>  </th>
+<th style="text-align:center;">      <strong>Mac</strong>       </th>
+<th style="text-align:center;"> <strong>Window&rsquo;s Cygwin, MinGW, MSYS</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Show <a href="https://github.com/ryanoasis/powerline-extra-symbols">Powerline symbols</a> </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;">        :heavy_check_mark:        </td>
+</tr>
+<tr>
+<td> Show prefix whenever press                                                     </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;">        :heavy_check_mark:        </td>
+</tr>
+<tr>
+<td> CPU &amp; Memory usage info                                                        </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :white_check_mark: </td>
+<td style="text-align:center;">        :white_check_mark:        </td>
+</tr>
+<tr>
+<td> Date &amp; Time                                                                    </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;">        :heavy_check_mark:        </td>
+</tr>
+<tr>
+<td> Network&rsquo;s IPv4 address                                                         </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;">        :white_check_mark:        </td>
+</tr>
+<tr>
+<td> Network&rsquo;s SSID                                                                 </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;">        :white_check_mark:        </td>
+</tr>
+<tr>
+<td> Battery                                                                        </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;"> :heavy_check_mark: </td>
+<td style="text-align:center;">        :white_check_mark:        </td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Configuration</h2>
+
+<p>You can customize to your needs by changing these options in <code>.tmux.conf</code>:</p>
+
+<p><code>shell
+set -g &lt;option's name&gt; &lt;new value&gt;
+</code></p>
+
+<h3>Color</h3>
+
+<table>
+<thead>
+<tr>
+<th> <strong>Option&rsquo;s name</strong>                 </th>
+<th> <strong>Description</strong>                      </th>
+<th style="text-align:center;"> <strong>Default value</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>@ultimate-theme-color-black</code>     </td>
+<td> Set your favourite <code>BLACK</code> color     </td>
+<td style="text-align:center;">     <code>#232627</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-white</code>     </td>
+<td> Set your favourite <code>WHITE</code> color     </td>
+<td style="text-align:center;">     <code>#fcfcfc</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-red</code>       </td>
+<td> Set your favourite <code>RED</code> color       </td>
+<td style="text-align:center;">     <code>#ed1515</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-green</code>     </td>
+<td> Set your favourite <code>GREEN</code> color     </td>
+<td style="text-align:center;">     <code>#11d418</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-yellow</code>    </td>
+<td> Set your favourite <code>YELLOW</code> color    </td>
+<td style="text-align:center;">     <code>#E5C07B</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-orange</code>    </td>
+<td> Set your favourite <code>ORANGE</code> color    </td>
+<td style="text-align:center;">     <code>#f67400</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-blue</code>      </td>
+<td> Set your favourite <code>BLUE</code> color      </td>
+<td style="text-align:center;">     <code>#45a1ed</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-magenta</code>   </td>
+<td> Set your favourite <code>MAGENTA</code> color   </td>
+<td style="text-align:center;">     <code>#9b59b6</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-pink</code>      </td>
+<td> Set your favourite <code>PINK</code> color      </td>
+<td style="text-align:center;">     <code>#ff79c6</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-cyan</code>      </td>
+<td> Set your favourite <code>CYAN</code> color      </td>
+<td style="text-align:center;">     <code>#18b495</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-grey</code>      </td>
+<td> Set your favourite <code>GREY</code> color      </td>
+<td style="text-align:center;">     <code>#C1C4C3</code>     </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-color-dark-grey</code> </td>
+<td> Set your favourite <code>DARK_GREY</code> color </td>
+<td style="text-align:center;">     <code>#3e4452</code>     </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Optional</h3>
+
+<table>
+<thead>
+<tr>
+<th> <strong>Option&rsquo;s name</strong>                         </th>
+<th> <strong>Description</strong>                                                         </th>
+<th style="text-align:center;"> <strong>Default value</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>@ultimate-theme-show-powerline</code>          </td>
+<td> Choose to show <a href="#list-features-support">Powerline symbols</a> or not       </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-show-prefix</code>             </td>
+<td> Choose to show <a href="#list-features-support">Prefix</a> or not                  </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-show-cpu-mem-info</code>       </td>
+<td> Choose to show <a href="#list-features-support">CPU &amp; Memory usage info</a> or not </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-show-date-time</code>          </td>
+<td> Choose to show <a href="#list-features-support">Date &amp; Time</a> or not             </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-show-network-ip-address</code> </td>
+<td> Choose to show <a href="#list-features-support">Network&rsquo;s IPv4 address</a> or not  </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-show-network-id</code>         </td>
+<td> Choose to show <a href="#list-features-support">Network&rsquo;s SSID</a> or not          </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-show-battery</code>            </td>
+<td> Choose to show <a href="#list-features-support">Battery</a> or not                 </td>
+<td style="text-align:center;">      <code>true</code>       </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Format information</h3>
+
+<table>
+<thead>
+<tr>
+<th> <strong>Option&rsquo;s name</strong>              </th>
+<th> <strong>Description</strong>                                                </th>
+<th style="text-align:center;"> <strong>Default value</strong> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>@ultimate-theme-clock-format</code> </td>
+<td> Set <strong>Time</strong> format based on <a href="http://www.strfti.me/">strftime</a> </td>
+<td style="text-align:center;">      <code>%H:%M</code>      </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-date-format</code>  </td>
+<td> Set <strong>Date</strong> format based on <a href="http://www.strfti.me/">strftime</a> </td>
+<td style="text-align:center;">  <code>%a, %e/%m/%Y</code>   </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Icon/Symbol</h3>
+
+<table>
+<thead>
+<tr>
+<th> <strong>Option&rsquo;s name</strong>                           </th>
+<th> <strong>Description</strong>                                                  </th>
+<th style="text-align:center;"> <strong>Default value</strong>  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <code>@ultimate-theme-powerline-left-icon</code>       </td>
+<td> Set <strong>Powerline&rsquo;s icon</strong> for <strong><em>left side of status bar</em></strong>       </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uE0B0'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-powerline-left-icon-thin</code>  </td>
+<td> Set <strong>Powerline&rsquo;s thin icon</strong> for <strong><em>left side of status bar</em></strong>  </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uE0B1'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-powerline-right-icon</code>      </td>
+<td> Set <strong>Powerline&rsquo;s icon</strong> for <strong><em>right side of status bar</em></strong>      </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uE0B2'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-powerline-right-icon-thin</code> </td>
+<td> Set <strong>Powerline&rsquo;s thin icon</strong> for <strong><em>right side of status bar</em></strong> </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uE0B3'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-window-pane-icon</code>          </td>
+<td> Set icon of <strong>Window : Pane</strong> in left status bar                 </td>
+<td style="text-align:center;">  <code></code> or <code>u/uF2D2</code>  </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-prefix-symbol</code>             </td>
+<td> Set your favourite <strong>Prefix</strong> symbol                             </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF73F'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-cpu-mem-icon</code>              </td>
+<td> Set icon of <strong>CPU &amp; Memory usage info</strong>                          </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF85A'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-time-icon</code>                 </td>
+<td> Set icon of <strong>Time</strong>                                             </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF017'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-date-icon</code>                 </td>
+<td> Set icon of <strong>Date</strong>                                             </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF073'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-network-offline-icon</code>      </td>
+<td> Set icon of <strong>Network</strong> when in <strong><em>Offline</em></strong> mode               </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF65A'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-network-ethernet-icon</code>     </td>
+<td> Set icon of <strong>Network</strong> when in <strong><em>Ethernet</em></strong> mode              </td>
+<td style="text-align:center;"> <code>ﯱ</code> or <code>u'\uFBF1'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-network-wifi-icon</code>         </td>
+<td> Set icon of <strong>Network</strong> when in <strong><em>Wifi</em></strong> mode                  </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF1EB'</code> </td>
+</tr>
+<tr>
+<td> <code>@ultimate-theme-battery-discharging-icon</code>  </td>
+<td> Set icon of <strong>Battery</strong> when in <strong><em>DC (Direct Current)</em></strong> mode   </td>
+<td style="text-align:center;"> <code></code> or <code>u'\uF583'</code> </td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Known Issues</h2>

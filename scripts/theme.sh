@@ -21,10 +21,10 @@ source "${CURRENT_DIR}/utils.sh"
 
 #-------------------------------- MAIN --------------------------------
 main() {
-    #------------------------------------------------------------------------------------
-    #-------------------------------- GET TMUX's OPTIONS --------------------------------
-    #------------------------------------------------------------------------------------
-    # Colors
+    #----------------------------------------------------------------------------
+    #---------------------------- GET TMUX's OPTIONS ----------------------------
+    #----------------------------------------------------------------------------
+    #-------------------------------- Colors --------------------------------
     BLACK=$(get_tmux_option "@ultimate-theme-color-black" "${BLACK}")
     WHITE=$(get_tmux_option "@ultimate-theme-color-white" "${WHITE}")
     RED=$(get_tmux_option "@ultimate-theme-color-red" "${RED}")
@@ -38,12 +38,7 @@ main() {
     GREY=$(get_tmux_option "@ultimate-theme-color-grey" "${GREY}")
     DARK_GREY=$(get_tmux_option "@ultimate-theme-color-dark-grey" "${DARK_GREY}")
 
-
-    # Date & time format
-    local clock_format=$(get_tmux_option "@ultimate-theme-clock-format" "%H:%M")
-    local date_format=$(get_tmux_option "@ultimate-theme-date-format" "%a, %e/%m/%Y")
-
-    # Optionals
+    #-------------------------------- Optionals --------------------------------
     local show_powerline=$(get_tmux_option "@ultimate-theme-show-powerline" true)
     local show_prefix=$(get_tmux_option "@ultimate-theme-show-prefix" true)
     local show_cpu_mem_info=$(get_tmux_option "@ultimate-theme-show-cpu-mem-info" true)
@@ -52,7 +47,13 @@ main() {
     local show_network_ip_address=$(get_tmux_option "@ultimate-theme-show-network-ip-address" false)
     local show_battery=$(get_tmux_option "@ultimate-theme-show-battery" true)
 
-    # Symbol/icon
+    #-------------------------------- Information format --------------------------------
+    # Date & time format
+    local clock_format=$(get_tmux_option "@ultimate-theme-clock-format" "%H:%M")
+    local date_format=$(get_tmux_option "@ultimate-theme-date-format" "%a, %e/%m/%Y")
+
+    #-------------------------------- Icon/Symbols --------------------------------
+    # Powerline's symbols
     local powerline_left_icon=""
     local powerline_left_icon_thin="|"
     local powerline_right_icon=""
@@ -65,14 +66,18 @@ main() {
         powerline_right_icon_thin=$(get_tmux_option "@ultimate-theme-powerline-right-icon-thin" "")
     fi
 
-    # Prefix symbol
+    # Window : Pane icon
+    local window_pane_icon=$(get_tmux_option "@ultimate-theme-window-pane-icon" "")
+
+    # Prefix icon
     local prefix_symbol=$(get_tmux_option "@ultimate-theme-prefix-symbol" "")
 
-    local clock_icon=$(get_tmux_option "@ultimate-theme-clock-icon" "")
+    # Date & Time icon
+    local time_icon=$(get_tmux_option "@ultimate-theme-time-icon" "")
     local date_icon=$(get_tmux_option "@ultimate-theme-date-icon" "")
 
     #------------------------------------------------------------------------
-    #-------------------------------- STYLING --------------------------------
+    #-------------------------------- STYLINGS --------------------------------
     #------------------------------------------------------------------------
     # Set refresh interval
     tmux set -g status-interval 4
@@ -85,6 +90,9 @@ main() {
     #-------------------------------- Pane border styling --------------------------------
     tmux set -g pane-border-style "fg=${DARK_GREY}"
     tmux set -g pane-active-border-style "fg=${ORANGE}"
+
+    #-------------------------------- Clock mode styling --------------------------------
+    tmux set -g clock-mode-colour "${ORANGE}"
 
     #-------------------------------- Message styling --------------------------------
     tmux set -g message-style "bg=${DARK_GREY},fg=${WHITE}"
@@ -109,7 +117,7 @@ main() {
 
     # Window index : Pane index
     tmux set -ga status-left "#[bg=${GREY},fg=${power_fg},nobold,nounderscore,noitalics]${powerline_left_icon}"
-    tmux set -ga status-left "#[bg=${GREY},fg=${BLACK}, bold]   #I:#P "
+    tmux set -ga status-left "#[bg=${GREY},fg=${BLACK}, bold] ${window_pane_icon}  #I:#P "
     power_fg=${GREY}
 
     tmux set -ga status-left "#[bg=${BLACK},fg=${power_fg},nobold,nounderscore,noitalics]${powerline_left_icon}"
@@ -132,6 +140,7 @@ main() {
         tmux set -ga status-right "#[bg=${BLACK},fg=${PINK}]#{?client_prefix, ${prefix_symbol} ,}"
         power_bg=${BLACK}
     fi
+    # tmux set -ga status-right "#[bg=${BLACK},fg=${GREY},nobold,nounderscore,noitalics]#{?client_prefix,#[bg=${power_bg}],}${powerline_right_icon}"
 
     # CPU & MEM info
     if $show_cpu_mem_info; then
@@ -141,10 +150,9 @@ main() {
     fi
 
     # Date & Time
-    # tmux set -ga status-right "#[bg=${BLACK},fg=${GREY},nobold,nounderscore,noitalics]#{?client_prefix,#[bg=${power_bg}],}${powerline_right_icon}"
     if $show_date_time; then
         tmux set -ga status-right "#[bg=${power_bg},fg=${GREY},nobold,nounderscore,noitalics]${powerline_right_icon}"
-        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK}] ${clock_format} ${clock_icon}  "
+        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK}] ${clock_format} ${time_icon}  "
         tmux set -ga status-right "#[bg=${GREY},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin}"
         tmux set -ga status-right "#[bg=${GREY},fg${BLACK}] ${date_format} ${date_icon}  "
         power_bg=${GREY}
@@ -168,10 +176,6 @@ main() {
         power_bg=${BLACK}
     fi
 
-    # # Host name
-    # tmux set -ga status-right "#[bg=${power_bg},fg=${BLUE},nobold,nounderscore,noitalics]${powerline_right_icon}"
-    # tmux set -ga status-right "#[bg=${BLUE},fg=${BLACK},bold] #h "
-
     #-------------------------------- Window tabs --------------------------------
     # Windows separator
     tmux set -wg window-status-separator " "
@@ -191,13 +195,12 @@ main() {
     # Format Current Window
     tmux set -wg window-status-current-format ""
     tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_left_icon}"
-    tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},bold] #I #W #F "
+    tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},bold] #I #[nobold,nounderscore,noitalics]${powerline_left_icon_thin}#[bold] #W #F "
     tmux set -wga window-status-current-format "#[bg=${BLACK},fg=${YELLOW},nobold,nounderscore,noitalics]${powerline_left_icon}"
 
     # Format remaining Windows
     tmux set -wg window-status-format ""
-    tmux set -wga window-status-format " #I #W #F "
+    tmux set -wga window-status-format " #I #[nounderscore,noitalics]${powerline_left_icon_thin} #W #F "
 }
 
-# Run main function
 main
