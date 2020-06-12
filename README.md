@@ -43,11 +43,11 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
 
 -   [**Nerd Font**](https://github.com/ryanoasis/nerd-fonts) (mine is [**_FiraCode Nerd Font_**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)).
 -   A **Terminal** that support **True color** (mine is [**_Alacritty_**](https://github.com/alacritty/alacritty) with ligatures support).
-    > Remember to [turn it on inside **Tmux**](https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/)
+    > Remember to [turn True color support inside **Tmux**](https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/)
 
 ## Installation
 
-> Only choose 1 of 2 methods.
+> Only choose 1 methods.
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
