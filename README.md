@@ -29,7 +29,7 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
 -   For **Linux** & **OpenBSD**:
 
     -   **_bash_**, **_cut_**, **_tr_**, **_grep_**, **_sed_**, **_awk_**: _Essentials_.
-    -   **_jq_**, **_sysstat_**, **procps**: For [CPU & Memory usage info](#list-features-support).
+    -   **_jq_**, **_sysstat_**, **_procps_**: For [CPU & Memory usage info](#list-features-support).
     -   **_iw_**: For [Network's SSID](#list-features-support).
     -   **_ip_**: For [Network's IPv4 address](#list-features-support).
     -   **_acpi_**: For [Battery info](#list-features-support).
