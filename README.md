@@ -28,14 +28,18 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
 -   **Tmux** **_version 2.5+_**, running inside Linux, Mac, OpenBSD.
 -   For **Linux** & **OpenBSD**:
 
-    -   **_cut_**, **_tr_**, **_grep_**, **_sed_**, **_awk_**, **_iw_**, **_ip_**, **_jq_**, **_sysstat_** (for _mpstat_ command), **_procps_** (for _free_ command).
-    -   **_bash_**.
-        > Most of these packages are already inside of your distro. You can check for each one by running command `$ command -v <name of package>`
+    -   **_bash_**, **_cut_**, **_tr_**, **_grep_**, **_sed_**, **_awk_**: _Essentials_.
+    -   **_jq_**, **_sysstat_**, **procps**: For [CPU & Memory usage info](#list-features-support).
+    -   **_iw_**: For [Network's SSID](#list-features-support).
+    -   **_ip_**: For [Network's IPv4 address](#list-features-support).
+    -   **_acpi_**: For [Battery info](#list-features-support).
+        > All these packages should have already been installed by default on your distro. You can check for each one by running command `$ command -v <name of package>`
 
 -   For **Mac**:
 
-    -   **_cut_**, **_grep_**, **_sed_**, **_pmset_**
-    -   **_bash_**.
+    -   **_bash_**, **_cut_**, **_grep_**, **_sed_**: _Essentials_
+    -   **_pmset_**: For [Battery info](#list-features-support)
+        > All these packages should have already been installed by default on Mac. You can check for each one by running command `$ command -v <name of package>`
 
 -   [**Nerd Font**](https://github.com/ryanoasis/nerd-fonts) (mine is [**_FiraCode Nerd Font_**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)).
 -   A **Terminal** that support **True color** (mine is [**_Alacritty_**](https://github.com/alacritty/alacritty) with ligatures support).
@@ -88,7 +92,7 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
 | Date & Time                                                                    | :heavy_check_mark: | :heavy_check_mark: |        :heavy_check_mark:        |
 | Network's IPv4 address                                                         | :heavy_check_mark: | :heavy_check_mark: |        :white_check_mark:        |
 | Network's SSID                                                                 | :heavy_check_mark: | :heavy_check_mark: |        :white_check_mark:        |
-| Battery                                                                        | :heavy_check_mark: | :heavy_check_mark: |        :white_check_mark:        |
+| Battery info                                                                   | :heavy_check_mark: | :heavy_check_mark: |        :white_check_mark:        |
 
 ## Configuration
 
@@ -125,7 +129,7 @@ set -g <option's name> <new value>
 | `@ultimate-theme-show-date-time`          | Choose to show [Date & Time](#list-features-support) or not             |      `true`       |
 | `@ultimate-theme-show-network-ip-address` | Choose to show [Network's IPv4 address](#list-features-support) or not  |      `true`       |
 | `@ultimate-theme-show-network-id`         | Choose to show [Network's SSID](#list-features-support) or not          |      `true`       |
-| `@ultimate-theme-show-battery`            | Choose to show [Battery](#list-features-support) or not                 |      `true`       |
+| `@ultimate-theme-show-battery`            | Choose to show [Battery info](#list-features-support) or not            |      `true`       |
 
 ### Format information
 
@@ -136,20 +140,20 @@ set -g <option's name> <new value>
 
 ### Icon/Symbol
 
-| **Option's name**                           | **Description**                                                  | **Default value**  |
-| ------------------------------------------- | ---------------------------------------------------------------- | :----------------: |
-| `@ultimate-theme-powerline-left-icon`       | Set **Powerline's icon** for **_left side of status bar_**       | `` or `u'\uE0B0'` |
-| `@ultimate-theme-powerline-left-icon-thin`  | Set **Powerline's thin icon** for **_left side of status bar_**  | `` or `u'\uE0B1'` |
-| `@ultimate-theme-powerline-right-icon`      | Set **Powerline's icon** for **_right side of status bar_**      | `` or `u'\uE0B2'` |
-| `@ultimate-theme-powerline-right-icon-thin` | Set **Powerline's thin icon** for **_right side of status bar_** | `` or `u'\uE0B3'` |
-| `@ultimate-theme-window-pane-icon`          | Set icon of **Window : Pane** in left status bar                 |  `` or `u/uF2D2`  |
-| `@ultimate-theme-prefix-symbol`             | Set your favourite **Prefix** symbol                             | `` or `u'\uF73F'` |
-| `@ultimate-theme-cpu-mem-icon`              | Set icon of **CPU & Memory usage info**                          | `` or `u'\uF85A'` |
-| `@ultimate-theme-time-icon`                 | Set icon of **Time**                                             | `` or `u'\uF017'` |
-| `@ultimate-theme-date-icon`                 | Set icon of **Date**                                             | `` or `u'\uF073'` |
-| `@ultimate-theme-network-offline-icon`      | Set icon of **Network** when in **_Offline_** mode               | `` or `u'\uF65A'` |
-| `@ultimate-theme-network-ethernet-icon`     | Set icon of **Network** when in **_Ethernet_** mode              | `ﯱ` or `u'\uFBF1'` |
-| `@ultimate-theme-network-wifi-icon`         | Set icon of **Network** when in **_Wifi_** mode                  | `` or `u'\uF1EB'` |
-| `@ultimate-theme-battery-discharging-icon`  | Set icon of **Battery** when in **_DC (Direct Current)_** mode   | `` or `u'\uF583'` |
+| **Option's name**                           | **Description**                                                     | **Default value**  |
+| ------------------------------------------- | ------------------------------------------------------------------- | :----------------: |
+| `@ultimate-theme-powerline-left-icon`       | Set **Powerline's icon** for **_left side of status bar_**          | `` or `u'\uE0B0'` |
+| `@ultimate-theme-powerline-left-icon-thin`  | Set **Powerline's thin icon** for **_left side of status bar_**     | `` or `u'\uE0B1'` |
+| `@ultimate-theme-powerline-right-icon`      | Set **Powerline's icon** for **_right side of status bar_**         | `` or `u'\uE0B2'` |
+| `@ultimate-theme-powerline-right-icon-thin` | Set **Powerline's thin icon** for **_right side of status bar_**    | `` or `u'\uE0B3'` |
+| `@ultimate-theme-window-pane-icon`          | Set icon of **Window : Pane** in left status bar                    |  `` or `u/uF2D2`  |
+| `@ultimate-theme-prefix-symbol`             | Set your favourite **Prefix** symbol                                | `` or `u'\uF73F'` |
+| `@ultimate-theme-cpu-mem-icon`              | Set icon of **CPU & Memory usage info**                             | `` or `u'\uF85A'` |
+| `@ultimate-theme-time-icon`                 | Set icon of **Time**                                                | `` or `u'\uF017'` |
+| `@ultimate-theme-date-icon`                 | Set icon of **Date**                                                | `` or `u'\uF073'` |
+| `@ultimate-theme-network-offline-icon`      | Set icon of **Network info** when in **_Offline_** mode             | `` or `u'\uF65A'` |
+| `@ultimate-theme-network-ethernet-icon`     | Set icon of **Network info** when in **_Ethernet_** mode            | `ﯱ` or `u'\uFBF1'` |
+| `@ultimate-theme-network-wifi-icon`         | Set icon of **Network** when in **_Wifi_** mode                     | `` or `u'\uF1EB'` |
+| `@ultimate-theme-battery-discharging-icon`  | Set icon of **Battery info** when in **_DC (Direct Current)_** mode | `` or `u'\uF583'` |
 
 ## Known Issues
