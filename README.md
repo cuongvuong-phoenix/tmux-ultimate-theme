@@ -88,214 +88,222 @@ You can customize to your needs by changing these options in `.tmux.conf`:
 
 ### Colors settings
 
+---
+
 #### Set your favourite `BLACK` color
 
--   **Command**: `set -g @ultimate-theme-color-black <your color : string>`
--   **Default**: `#232627`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-black <your color : string>`
+-   _Default_: `#232627`.
+-   _Depending on_: None.
 
 #### Set your favourite `WHITE` color
 
--   **Command**: `set -g @ultimate-theme-color-white <your color : string>`
--   **Default**: `#fcfcfc`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-white <your color : string>`
+-   _Default_: `#fcfcfc`.
+-   _Depending on_: None.
 
 #### Set your favourite `RED` color
 
--   **Command**: `set -g @ultimate-theme-color-red <your color: string>`
--   **Default**: `#ed1515`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-red <your color: string>`
+-   _Default_: `#ed1515`.
+-   _Depending on_: None.
 
 #### Set your favourite `GREEN` color
 
--   **Command**: `set -g @ultimate-theme-color-green <your color : string>`
--   **Default**: `#11d418`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-green <your color : string>`
+-   _Default_: `#11d418`.
+-   _Depending on_: None.
 
 #### Set your favourite `YELLOW` color
 
--   **Command**: `set -g @ultimate-theme-color-yellow <your color : string>`
--   **Default**: `#E5C07B`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-yellow <your color : string>`
+-   _Default_: `#E5C07B`.
+-   _Depending on_: None.
 
 #### Set your favourite `ORANGE` color
 
--   **Command**: `set -g @ultimate-theme-color-orange <your color : string>`
--   **Default**: `#f67400`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-orange <your color : string>`
+-   _Default_: `#f67400`.
+-   _Depending on_: None.
 
 #### Set your favourite `BLUE` color
 
--   **Command**: `set -g @ultimate-theme-color-blue <your color : string>`
--   **Default**: `#45a1ed`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-blue <your color : string>`
+-   _Default_: `#45a1ed`.
+-   _Depending on_: None.
 
 #### Set your favourite `MAGENTA` color
 
--   **Command**: `set -g @ultimate-theme-color-magenta <your color: string>`
--   **Default**: `#9b59b6`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-magenta <your color: string>`
+-   _Default_: `#9b59b6`.
+-   _Depending on_: None.
 
 #### Set your favourite `PINK` color
 
--   **Command**: `set -g @ultimate-theme-color-pink <your color: string>`
--   **Default**: `#ff79c6`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-pink <your color: string>`
+-   _Default_: `#ff79c6`.
+-   _Depending on_: None.
 
 #### Set your favourite `CYAN` color
 
--   **Command**: `set -g @ultimate-theme-color-cyan <your color: string>`
--   **Default**: `#18b495`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-cyan <your color: string>`
+-   _Default_: `#18b495`.
+-   _Depending on_: None.
 
 #### Set your favourite `GREY` color
 
--   **Command**: `set -g @ultimate-theme-color-grey <your color: string>`
--   **Default**: `#C1C4C3`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-grey <your color: string>`
+-   _Default_: `#C1C4C3`.
+-   _Depending on_: None.
 
 #### Set your favourite `DARK_GREY` color
 
--   **Command**: `set -g @ultimate-theme-color-dark-grey <your color: string>`
--   **Default**: `#3e4452`.
--   **Depending on**: None.
+-   _Command_: `set -g @ultimate-theme-color-dark-grey <your color: string>`
+-   _Default_: `#3e4452`.
+-   _Depending on_: None.
 
 ### Optionals
 
+---
+
 #### Choose to show [Powerline symbols](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-powerline <your choice: boolean>`
--   **Default**: `true`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-powerline <your choice: boolean>`
+-   _Default_: `true`
+-   _Depending on_: None
 
 #### Choose to show [Prefix](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-prefix <your choice: boolean>`
--   **Default**: `true`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-prefix <your choice: boolean>`
+-   _Default_: `true`
+-   _Depending on_: None
 
 #### Choose to show [CPU & Memory usage info](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-cpu-mem-info <your choice: boolean>`
--   **Default**: `true`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-cpu-mem-info <your choice: boolean>`
+-   _Default_: `true`
+-   _Depending on_: None
 
 #### Choose to show [Date & Time](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-date-time <your choice: boolean>`
--   **Default**: `true`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-date-time <your choice: boolean>`
+-   _Default_: `true`
+-   _Depending on_: None
 
 #### Choose to show [Network's IPv4 address](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-network-ip-address <your choice: boolean>`
--   **Default**: `false`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-network-ip-address <your choice: boolean>`
+-   _Default_: `false`
+-   _Depending on_: None
 
 #### Choose to show [Network's SSID](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-network-id <your choice: boolean>`
--   **Default**: `true`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-network-id <your choice: boolean>`
+-   _Default_: `true`
+-   _Depending on_: None
 
 #### Choose to show [Battery](#list-features-support)
 
--   **Command**: `set -g @ultimate-theme-show-battery <your choice: boolean>`
--   **Default**: `true`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-show-battery <your choice: boolean>`
+-   _Default_: `true`
+-   _Depending on_: None
 
 ### Format information
 
+---
+
 #### Set clock format based on [strftime](http://www.strfti.me/)
 
--   **Command**: `set -g @ultimate-theme-clock-format <your format: string>`
--   **Default**: `%H:%M`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-clock-format <your format: string>`
+-   _Default_: `%H:%M`
+-   _Depending on_: None
 
 #### Set date format based on [strftime](http://www.strfti.me/)
 
--   **Command**: `set -g @ultimate-theme-date-format <your format: string>`
--   **Default**: `%a, %e/%m/%Y`
--   **Depending on**: None
+-   _Command_: `set -g @ultimate-theme-date-format <your format: string>`
+-   _Default_: `%a, %e/%m/%Y`
+-   _Depending on_: None
 
 ### Icon/Symbol settings
 
-#### Set _powerline's icon_ for _left side of status bar_
+---
 
--   **Command**: `set -g @ultimate-theme-powerline-left-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uE0B0'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
+#### Set _Powerline's icon_ for _left side of status bar_
 
-#### Set _powerline's thin icon_ for _left side of status bar_
+-   _Command_: `set -g @ultimate-theme-powerline-left-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uE0B0'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
 
--   **Command**: `set -g @ultimate-theme-powerline-left-icon-thin <your symbol/icon: string>`
--   **Default**: `` (or `u'\uE0B1'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
+#### Set _Powerline's thin icon_ for _left side of status bar_
 
-#### Set _powerline's icon_ for _right side of status bar_
+-   _Command_: `set -g @ultimate-theme-powerline-left-icon-thin <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uE0B1'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
 
--   **Command**: `set -g @ultimate-theme-powerline-right-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uE0B2'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
+#### Set _Powerline's icon_ for _right side of status bar_
 
-#### Set _powerline's thin icon_ for _right side of status bar_
+-   _Command_: `set -g @ultimate-theme-powerline-right-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uE0B2'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
 
--   **Command**: `set -g @ultimate-theme-powerline-right-icon-thin <your symbol/icon: string>`
--   **Default**: `` (or `u'\uE0B3'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
+#### Set _Powerline's thin icon_ for _right side of status bar_
 
-#### Set your prefer `prefix_symbol`
+-   _Command_: `set -g @ultimate-theme-powerline-right-icon-thin <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uE0B3'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
 
--   **Command**: `set -g @ultimate-theme-prefix-symbol <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF73F'` Nerd font hex code).
--   **Depend))ing on**: [`@ultimate-theme-show-prefix`.](#choose-to-show-prefix)
+#### Set your favourite _Prefix's_ symbol
+
+-   _Command_: `set -g @ultimate-theme-prefix-symbol <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF73F'` Nerd font hex code).
+-   _Depending on_: [`@ultimate-theme-show-prefix`.](#choose-to-show-prefix)
 
 #### Set [CPU & Memory usage info](#list-features-support) icon
 
--   **Command**: `set -g @ultimate-theme-cpu-mem-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF85A'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-cpu-mem-info`](#choose-to-show-cpu-memory-usage-info)
+-   _Command_: `set -g @ultimate-theme-cpu-mem-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF85A'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-cpu-mem-info`](#choose-to-show-cpu--memory-usage-info)
 
 #### Set icon of [Clock (Time)](#list-features-support) when in _DC (Direct Current)_ mode
 
--   **Command**: `set -g @ultimate-theme-clock-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF017'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-date-time`](#choose-to-show-date-time)
+-   _Command_: `set -g @ultimate-theme-clock-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF017'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-date-time`](#choose-to-show-date--time)
 
 #### Set icon of [Date](#list-features-support) when in _DC (Direct Current)_ mode
 
--   **Command**: `set -g @ultimate-theme-date-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF073'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-date-time`](#choose-to-show-date-time)
+-   _Command_: `set -g @ultimate-theme-date-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF073'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-date-time`](#choose-to-show-date--time)
 
 #### Set icon of [Network](#list-features-support) when _Offline_
 
--   **Command**: `set -g @ultimate-theme-network-offline-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF65A'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
+-   _Command_: `set -g @ultimate-theme-network-offline-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF65A'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
 
 #### Set icon of [Network](#list-features-support) when in _Ethernet_ mode
 
--   **Command**: `set -g @ultimate-theme-network-ethernet-icon <your symbol/icon: string>`
--   **Default**: `ﯱ` (or `u'\uFBF1'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
+-   _Command_: `set -g @ultimate-theme-network-ethernet-icon <your symbol/icon: string>`
+-   _Default_: `ﯱ` (or `u'\uFBF1'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
 
 #### Set icon of [Network](#list-features-support) when in _Wifi_ mode
 
--   **Command**: `set -g @ultimate-theme-network-wifi-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF1EB'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
+-   _Command_: `set -g @ultimate-theme-network-wifi-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF1EB'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
 
 #### Set icon of [Battery](#list-features-support) when in _DC (Direct Current)_ mode
 
--   **Command**: `set -g @ultimate-theme-battery-discharging-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF583'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-battery`](#choose-to-show-battery)
+-   _Command_: `set -g @ultimate-theme-battery-discharging-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF583'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-battery`](#choose-to-show-battery)
 
 #### Set icon of [Battery](#list-features-support) when in _AC (Alternating Current)_ mode
 
--   **Command**: `set -g @ultimate-theme-battery-ac-icon <your symbol/icon: string>`
--   **Default**: `` (or `u'\uF0E7'` Powerl))ine hex code)
--   **Depending on**: [`@ultimate-theme-show-battery`](#choose-to-show-battery)
+-   _Command_: `set -g @ultimate-theme-battery-ac-icon <your symbol/icon: string>`
+-   _Default_: `` (or `u'\uF0E7'` Powerline hex code)
+-   _Depending on_: [`@ultimate-theme-show-battery`](#choose-to-show-battery)
 
 ## Known Issues
