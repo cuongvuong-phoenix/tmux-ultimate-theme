@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
+#-------------------------------- GLOBAL VARIABLES --------------------------------
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HOSTS_TEST="google.com github.com example.com"
 
+#-------------------------------- UTILS --------------------------------
+source "${CURRENT_DIR}/utils.sh"
+
+#-------------------------------- FUNCTIONS --------------------------------
 get_ssid()
 {
-	# Check OS
 	case $(uname -s) in
 		Linux)
 			SSID=$(iw dev | sed -nr 's/^\t\tssid (.*)/\1/p')
@@ -24,7 +29,6 @@ get_ssid()
 		;;
 
 		CYGWIN*|MINGW32*|MSYS*|MINGW*)
-			# leaving empty - TODO - windows compatability
 		;;
 
 		*)
@@ -44,15 +48,18 @@ main()
 	    fi
 	done
 
-    if [[ $network == "Offline" ]]; then
-        echo "$network  "
-    elif [[ $network == "Ethernet" ]]; then
-        echo "$network ﯱ "
+    local network_offline_icon=$(get_tmux_option "@ultimate-theme-network-offline-icon" "")
+    local network_ethernet_icon=$(get_tmux_option "@ultimate-theme-network-ethernet-icon" "ﯱ")
+    local network_wifi_icon=$(get_tmux_option "@ultimate-theme-network-wifi-icon" "")
+
+    if [[ ${network} == "Offline" ]]; then
+        echo "${network} ${network_offline_icon} "
+    elif [[ ${network} == "Ethernet" ]]; then
+        echo "${network} ${network_ethernet_icon} "
     else
-        echo "$network  "
+        echo "${network} ${network_wifi_icon} "
     fi
 }
 
-#run main driver function
 main
 

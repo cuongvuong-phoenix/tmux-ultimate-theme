@@ -17,7 +17,6 @@ get_cpu_info() {
         ;;
 
 		CYGWIN*|MINGW32*|MSYS*|MINGW*)
-			# leaving empty - TODO - windows compatability
 		;;
 
 		*)
@@ -28,6 +27,7 @@ get_cpu_info() {
 get_mem_info() {
     case $(uname -s) in
         Linux)
+            # USED everywhere = real USED + BUFFER + CACHE
             echo $(free | grep -i "^mem" | awk '{ printf("%.1f%", ($2-$NF)*100/$2) }')
         ;;
         
@@ -35,7 +35,6 @@ get_mem_info() {
         ;;
 
 		CYGWIN*|MINGW32*|MSYS*|MINGW*)
-			# leaving empty - TODO - windows compatability
 		;;
 
 		*)
@@ -49,12 +48,14 @@ main() {
 
     local show_powerline=$(get_tmux_option "@ultimate-theme-show-powerline" true)
     local powerline_right_icon_thin="|"
+
+    local cpu_mem_icon=$(get_tmux_option "@ultimate-theme-cpu-mem-icon" "")
     
-    if $show_powerline; then
+    if ${show_powerline}; then
         powerline_right_icon_thin=$(get_tmux_option "@ultimate-theme-powerline-right-icon-thin" "")
     fi       
 
-    echo "CPU: $cpu_usage #[bg=${CYAN},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin} MEM: $mem_usage  " 
+    echo "CPU: ${cpu_usage} #[bg=${CYAN},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin} MEM: ${mem_usage} ${cpu_mem_icon} " 
 }
 
 main

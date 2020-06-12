@@ -38,12 +38,21 @@ main() {
     GREY=$(get_tmux_option "@ultimate-theme-color-grey" "${GREY}")
     DARK_GREY=$(get_tmux_option "@ultimate-theme-color-dark-grey" "${DARK_GREY}")
 
-    # Prefix symbol
-    local prefix_symbol=$(get_tmux_option "@ultimate-theme-prefix-symbol" "")
 
-    # Powerline symbol/icon
+    # Date & time format
+    local clock_format=$(get_tmux_option "@ultimate-theme-clock-format" "%H:%M")
+    local date_format=$(get_tmux_option "@ultimate-theme-date-format" "%a, %e/%m/%Y")
+
+    # Optionals
     local show_powerline=$(get_tmux_option "@ultimate-theme-show-powerline" true)
+    local show_prefix=$(get_tmux_option "@ultimate-theme-show-prefix" true)
+    local show_cpu_mem_info=$(get_tmux_option "@ultimate-theme-show-cpu-mem-info" true)
+    local show_date_time=$(get_tmux_option "@ultimate-theme-show-date-time" true)
+    local show_network_id=$(get_tmux_option "@ultimate-theme-show-network-id" true)
+    local show_network_ip_address=$(get_tmux_option "@ultimate-theme-show-network-ip-address" false)
+    local show_battery=$(get_tmux_option "@ultimate-theme-show-battery" true)
 
+    # Symbol/icon
     local powerline_left_icon=""
     local powerline_left_icon_thin="|"
     local powerline_right_icon=""
@@ -56,17 +65,11 @@ main() {
         powerline_right_icon_thin=$(get_tmux_option "@ultimate-theme-powerline-right-icon-thin" "")
     fi
 
-    # Date & time format
-    local clock_format=$(get_tmux_option "@ultimate-theme-clock-format" "%H:%M")
-    local date_format=$(get_tmux_option "@ultimate-theme-date-format" "%a, %e/%m/%Y")
+    # Prefix symbol
+    local prefix_symbol=$(get_tmux_option "@ultimate-theme-prefix-symbol" "")
 
-    # Optionals
-    local show_prefix=$(get_tmux_option "@ultimate-theme-show-prefix" true)
-    local show_cpu_mem_info=$(get_tmux_option "@ultimate-theme-show-cpu-mem-info" true)
-    local show_date_time=$(get_tmux_option "@ultimate-theme-show-date-time" true)
-    local show_network_id=$(get_tmux_option "@ultimate-theme-show-network-id" true)
-    local show_network_ip_address=$(get_tmux_option "@ultimate-theme-show-network-ip-address" false)
-    local show_battery=$(get_tmux_option "@ultimate-theme-show-battery" true)
+    local clock_icon=$(get_tmux_option "@ultimate-theme-clock-icon" "")
+    local date_icon=$(get_tmux_option "@ultimate-theme-date-icon" "")
 
     #------------------------------------------------------------------------
     #-------------------------------- STYLING --------------------------------
@@ -141,9 +144,9 @@ main() {
     # tmux set -ga status-right "#[bg=${BLACK},fg=${GREY},nobold,nounderscore,noitalics]#{?client_prefix,#[bg=${power_bg}],}${powerline_right_icon}"
     if $show_date_time; then
         tmux set -ga status-right "#[bg=${power_bg},fg=${GREY},nobold,nounderscore,noitalics]${powerline_right_icon}"
-        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK}] ${clock_format}   "
+        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK}] ${clock_format} ${clock_icon}  "
         tmux set -ga status-right "#[bg=${GREY},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin}"
-        tmux set -ga status-right "#[bg=${GREY},fg${BLACK}] ${date_format}   "
+        tmux set -ga status-right "#[bg=${GREY},fg${BLACK}] ${date_format} ${date_icon}  "
         power_bg=${GREY}
     fi
 

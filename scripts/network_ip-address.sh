@@ -11,11 +11,9 @@ get_ip_address() {
         ;;
 
         Darwin)
-			# leaving empty - TODO - windows compatability
         ;;
 
 		CYGWIN*|MINGW32*|MSYS*|MINGW*)
-			# leaving empty - TODO - windows compatability
 		;;
 
 		*)
