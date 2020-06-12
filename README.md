@@ -7,9 +7,9 @@ A dark theme for [tmux](https://github.com/tmux/tmux/wiki)'s status bar.
 1.  [Introduction](#introduction)
 2.  [Requirements](#requirements)
 3.  [Installation](#installation)
-    -   [Installation with Tmux Plugin Manager](#installation-with-tmux-plugin-manager)
+    -   [Installation with Tmux Plugin Manager](#installation-with-tmux-plugin-manager-recommended)
     -   [Manual Installation](#manual-installation)
-4.  [List features support](#list-features-support)
+4.  [List OS support](#list-os-support)
 5.  [Configuration](#configuration)
     -   [Color](#color)
     -   [Optional](#optional)
@@ -74,7 +74,7 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
     $ tmux source <path to your .tmux.conf file>
     ```
 
-## List features support
+## List OS support
 
 | **Feature**                                                                    | **Linux/OpenBSD**  |      **Mac**       | **Window's Cygwin, MinGW, MSYS** |
 | ------------------------------------------------------------------------------ | :----------------: | :----------------: | :------------------------------: |
@@ -91,7 +91,7 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
 You can customize to your needs by changing these options in `.tmux.conf`:
 
 ```shell
-set -g <Option's name> <new value>
+set -g <option's name> <new value>
 ```
 
 ### Color
@@ -125,243 +125,26 @@ set -g <Option's name> <new value>
 
 ### Format information
 
-| **Option's name**              | **Description**                                                                             | **Default value** |
-| ------------------------------ | ------------------------------------------------------------------------------------------- | :---------------: |
-| `@ultimate-theme-clock-format` | Set [Clock(Time)](#list-features-support) format based on [strftime](http://www.strfti.me/) |      `%H:%M`      |
-| `@ultimate-theme-date-format`  | Set [Date](#list-features-support) format based on [strftime](http://www.strfti.me/)        |  `%a, %e/%m/%Y`   |
+| **Option's name**              | **Description**                                                | **Default value** |
+| ------------------------------ | -------------------------------------------------------------- | :---------------: |
+| `@ultimate-theme-clock-format` | Set **Time** format based on [strftime](http://www.strfti.me/) |      `%H:%M`      |
+| `@ultimate-theme-date-format`  | Set **Date** format based on [strftime](http://www.strfti.me/) |  `%a, %e/%m/%Y`   |
 
 ### Icon/Symbol
 
-| **Option's name**                           | **Description**                                                                       | **Default value**  |
-| ------------------------------------------- | ------------------------------------------------------------------------------------- | :----------------: |
-| `@ultimate-theme-powerline-left-icon`       | Set _Powerline's icon_ for _left side of status bar_                                  | `` or `u'\uE0B0'` |
-| `@ultimate-theme-powerline-left-icon-thin`  | Set _Powerline's thin icon_ for _left side of status bar_                             | `` or `u'\uE0B1'` |
-| `@ultimate-theme-powerline-right-icon`      | Set _Powerline's icon_ for _right side of status bar_                                 | `` or `u'\uE0B2'` |
-| `@ultimate-theme-powerline-right-icon-thin` | Set _Powerline's thin icon_ for _right side of status bar_                            | `` or `u'\uE0B3'` |
-| `@ultimate-theme-prefix-symbol`             | Set your favourite _Prefix_ symbol                                                    | `` or `u'\uF73F'` |
-| `@ultimate-theme-cpu-mem-icon`              | Set icon of [CPU & Memory usage info](#list-features-support)                         | `` or `u'\uF85A'` |
-| `@ultimate-theme-clock-icon`                | Set icon of [Time](#list-features-support)                                            | `` or `u'\uF017'` |
-| `@ultimate-theme-date-icon`                 | Set icon of [Date](#list-features-support)                                            | `` or `u'\uF073'` |
-| `@ultimate-theme-network-offline-icon`      | Set icon of [Network](#list-features-support) when in _Offline_ mode                  | `` or `u'\uF65A'` |
-| `@ultimate-theme-network-ethernet-icon`     | Set icon of [Network](#list-features-support) when in _Ethernet_ mode                 | `ﯱ` or `u'\uFBF1'` |
-| `@ultimate-theme-network-wifi-icon`         | Set icon of [Network](#list-features-support) when in _Wifi_ mode                     | `` or `u'\uF1EB'` |
-| `@ultimate-theme-battery-discharging-icon`  | Set icon of [Battery](#list-features-support) when in _DC (Direct Current)_ mode      | `` or `u'\uF583'` |
-| `@ultimate-theme-battery-ac-icon`           | Set icon of [Battery](#list-features-support) when in _AC (Alternating Current)_ mode | `` or `u'\uF0E7'` |
-
-#### Set your favourite `BLACK` color
-
--   _Command_: `set -g @ultimate-theme-color-black <your color : string>`
--   _Default_: `#232627`.
--   _Depending on_: None.
-
-#### Set your favourite `WHITE` color
-
--   _Command_: `set -g @ultimate-theme-color-white <your color : string>`
--   _Default_: `#fcfcfc`.
--   _Depending on_: None.
-
-#### Set your favourite `RED` color
-
--   _Command_: `set -g @ultimate-theme-color-red <your color: string>`
--   _Default_: `#ed1515`.
--   _Depending on_: None.
-
-#### Set your favourite `GREEN` color
-
--   _Command_: `set -g @ultimate-theme-color-green <your color : string>`
--   _Default_: `#11d418`.
--   _Depending on_: None.
-
-#### Set your favourite `YELLOW` color
-
--   _Command_: `set -g @ultimate-theme-color-yellow <your color : string>`
--   _Default_: `#E5C07B`.
--   _Depending on_: None.
-
-#### Set your favourite `ORANGE` color
-
--   _Command_: `set -g @ultimate-theme-color-orange <your color : string>`
--   _Default_: `#f67400`.
--   _Depending on_: None.
-
-#### Set your favourite `BLUE` color
-
--   _Command_: `set -g @ultimate-theme-color-blue <your color : string>`
--   _Default_: `#45a1ed`.
--   _Depending on_: None.
-
-#### Set your favourite `MAGENTA` color
-
--   _Command_: `set -g @ultimate-theme-color-magenta <your color: string>`
--   _Default_: `#9b59b6`.
--   _Depending on_: None.
-
-#### Set your favourite `PINK` color
-
--   _Command_: `set -g @ultimate-theme-color-pink <your color: string>`
--   _Default_: `#ff79c6`.
--   _Depending on_: None.
-
-#### Set your favourite `CYAN` color
-
--   _Command_: `set -g @ultimate-theme-color-cyan <your color: string>`
--   _Default_: `#18b495`.
--   _Depending on_: None.
-
-#### Set your favourite `GREY` color
-
--   _Command_: `set -g @ultimate-theme-color-grey <your color: string>`
--   _Default_: `#C1C4C3`.
--   _Depending on_: None.
-
-#### Set your favourite `DARK_GREY` color
-
--   _Command_: `set -g @ultimate-theme-color-dark-grey <your color: string>`
--   _Default_: `#3e4452`.
--   _Depending on_: None.
-
-### Optionals
-
----
-
-#### Choose to show [Powerline symbols](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-powerline <your choice: boolean>`
--   _Default_: `true`
--   _Depending on_: None
-
-#### Choose to show [Prefix](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-prefix <your choice: boolean>`
--   _Default_: `true`
--   _Depending on_: None
-
-#### Choose to show [CPU & Memory usage info](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-cpu-mem-info <your choice: boolean>`
--   _Default_: `true`
--   _Depending on_: None
-
-#### Choose to show [Date & Time](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-date-time <your choice: boolean>`
--   _Default_: `true`
--   _Depending on_: None
-
-#### Choose to show [Network's IPv4 address](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-network-ip-address <your choice: boolean>`
--   _Default_: `false`
--   _Depending on_: None
-
-#### Choose to show [Network's SSID](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-network-id <your choice: boolean>`
--   _Default_: `true`
--   _Depending on_: None
-
-#### Choose to show [Battery](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-show-battery <your choice: boolean>`
--   _Default_: `true`
--   _Depending on_: None
-
-### Format information
-
----
-
-#### Set clock format based on [strftime](http://www.strfti.me/)
-
--   _Command_: `set -g @ultimate-theme-clock-format <your format: string>`
--   _Default_: `%H:%M`
--   _Depending on_: None
-
-#### Set date format based on [strftime](http://www.strfti.me/)
-
--   _Command_: `set -g @ultimate-theme-date-format <your format: string>`
--   _Default_: `%a, %e/%m/%Y`
--   _Depending on_: None
-
-### Icon/Symbol settings
-
----
-
-#### Set _Powerline's icon_ for _left side of status bar_
-
--   _Command_: `set -g @ultimate-theme-powerline-left-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uE0B0'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
-
-#### Set _Powerline's thin icon_ for _left side of status bar_
-
--   _Command_: `set -g @ultimate-theme-powerline-left-icon-thin <your symbol/icon: string>`
--   _Default_: `` (or `u'\uE0B1'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
-
-#### Set _Powerline's icon_ for _right side of status bar_
-
--   _Command_: `set -g @ultimate-theme-powerline-right-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uE0B2'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
-
-#### Set _Powerline's thin icon_ for _right side of status bar_
-
--   _Command_: `set -g @ultimate-theme-powerline-right-icon-thin <your symbol/icon: string>`
--   _Default_: `` (or `u'\uE0B3'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-powerline`](#choose-to-show-powerline-symbols)
-
-#### Set your favourite _Prefix's_ symbol
-
--   _Command_: `set -g @ultimate-theme-prefix-symbol <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF73F'` Nerd font hex code).
--   _Depending on_: [`@ultimate-theme-show-prefix`.](#choose-to-show-prefix)
-
-#### Set icon of [CPU & Memory usage info](#list-features-support)
-
--   _Command_: `set -g @ultimate-theme-cpu-mem-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF85A'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-cpu-mem-info`](#choose-to-show-cpu--memory-usage-info)
-
-#### Set icon of [Time](#list-features-support) when in _DC (Direct Current)_ mode
-
--   _Command_: `set -g @ultimate-theme-clock-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF017'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-date-time`](#choose-to-show-date--time)
-
-#### Set icon of [Date](#list-features-support) when in _DC (Direct Current)_ mode
-
--   _Command_: `set -g @ultimate-theme-date-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF073'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-date-time`](#choose-to-show-date--time)
-
-#### Set icon of [Network](#list-features-support) when _Offline_
-
--   _Command_: `set -g @ultimate-theme-network-offline-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF65A'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
-
-#### Set icon of [Network](#list-features-support) when in _Ethernet_ mode
-
--   _Command_: `set -g @ultimate-theme-network-ethernet-icon <your symbol/icon: string>`
--   _Default_: `ﯱ` (or `u'\uFBF1'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
-
-#### Set icon of [Network](#list-features-support) when in _Wifi_ mode
-
--   _Command_: `set -g @ultimate-theme-network-wifi-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF1EB'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-network-id`](#choose-to-show-networks-ssid)
-
-#### Set icon of [Battery](#list-features-support) when in _DC (Direct Current)_ mode
-
--   _Command_: `set -g @ultimate-theme-battery-discharging-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF583'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-battery`](#choose-to-show-battery)
-
-#### Set icon of [Battery](#list-features-support) when in _AC (Alternating Current)_ mode
-
--   _Command_: `set -g @ultimate-theme-battery-ac-icon <your symbol/icon: string>`
--   _Default_: `` (or `u'\uF0E7'` Powerline hex code)
--   _Depending on_: [`@ultimate-theme-show-battery`](#choose-to-show-battery)
+| **Option's name**                           | **Description**                                                  | **Default value**  |
+| ------------------------------------------- | ---------------------------------------------------------------- | :----------------: |
+| `@ultimate-theme-powerline-left-icon`       | Set **Powerline's icon** for **_left side of status bar_**       | `` or `u'\uE0B0'` |
+| `@ultimate-theme-powerline-left-icon-thin`  | Set **Powerline's thin icon** for **_left side of status bar_**  | `` or `u'\uE0B1'` |
+| `@ultimate-theme-powerline-right-icon`      | Set **Powerline's icon** for **_right side of status bar_**      | `` or `u'\uE0B2'` |
+| `@ultimate-theme-powerline-right-icon-thin` | Set **Powerline's thin icon** for **_right side of status bar_** | `` or `u'\uE0B3'` |
+| `@ultimate-theme-prefix-symbol`             | Set your favourite **Prefix** symbol                             | `` or `u'\uF73F'` |
+| `@ultimate-theme-cpu-mem-icon`              | Set icon of **CPU & Memory usage info**                          | `` or `u'\uF85A'` |
+| `@ultimate-theme-clock-icon`                | Set icon of **Time**                                             | `` or `u'\uF017'` |
+| `@ultimate-theme-date-icon`                 | Set icon of **Date**                                             | `` or `u'\uF073'` |
+| `@ultimate-theme-network-offline-icon`      | Set icon of **Network** when in **_Offline_** mode               | `` or `u'\uF65A'` |
+| `@ultimate-theme-network-ethernet-icon`     | Set icon of **Network** when in **_Ethernet_** mode              | `ﯱ` or `u'\uFBF1'` |
+| `@ultimate-theme-network-wifi-icon`         | Set icon of **Network** when in **_Wifi_** mode                  | `` or `u'\uF1EB'` |
+| `@ultimate-theme-battery-discharging-icon`  | Set icon of **Battery** when in **_DC (Direct Current)_** mode   | `` or `u'\uF583'` |
 
 ## Known Issues
