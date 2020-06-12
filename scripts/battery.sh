@@ -3,23 +3,15 @@
 #-------------------------------- GLOBAL VARIABLES --------------------------------
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-#-------------------------------- FUNCTIONS --------------------------------
-get_tmux_options() {
-    local option=$1
-    local default_value=$2
-    local option_value=$(tmux show-option -gvq "${option}")
-    if [ -z $option_value ]; then
-        echo $default_value
-    else
-        echo $option_value
-    fi
-}
+#-------------------------------- UTILS --------------------------------
+source "${CURRENT_DIR}/utils.sh"
 
+#-------------------------------- FUNCTIONS --------------------------------
 get_battery_status() {
     local status=""
 
-    local discharing_icon=$(get_tmux_options "@ultimate-theme-battery-discharging-icon" "")
-    local ac_icon=$(get_tmux_options "@ultimate-theme-battery-ac-icon" "")
+    local discharing_icon=$(get_tmux_option "@ultimate-theme-battery-discharging-icon" "")
+    local ac_icon=$(get_tmux_option "@ultimate-theme-battery-ac-icon" "")
 
     case $(uname -s) in
         Linux)
@@ -34,7 +26,7 @@ get_battery_status() {
         ;;
     esac
 
-    if [ $status =  "discharging" ]; then
+    if [[ $status =  "discharging" ]]; then
         echo "${discharing_icon} "
     else
         echo "${ac_icon} "

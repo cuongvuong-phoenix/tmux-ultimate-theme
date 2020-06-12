@@ -44,9 +44,9 @@ main()
 	    fi
 	done
 
-    if [ $network = "Offline" ]; then
+    if [[ $network == "Offline" ]]; then
         echo "$network  "
-    elif [ $network = "Ethernet" ]; then
+    elif [[ $network == "Ethernet" ]]; then
         echo "$network ﯱ "
     else
         echo "$network  "

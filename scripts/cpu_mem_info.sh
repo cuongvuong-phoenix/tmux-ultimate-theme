@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+#-------------------------------- GLOBAL VARIABLES --------------------------------
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+#-------------------------------- UTILS --------------------------------
+source "${CURRENT_DIR}/utils.sh"
+
+#-------------------------------- FUNCTIONS --------------------------------
 get_cpu_info() {
     case $(uname -s) in
         Linux)
@@ -40,7 +47,14 @@ main() {
     local cpu_usage=$(get_cpu_info)
     local mem_usage=$(get_mem_info)
 
-    echo "CPU: $cpu_usage | MEM: $mem_usage  " 
+    local show_powerline=$(get_tmux_option "@ultimate-theme-show-powerline" true)
+    local powerline_right_icon_thin="|"
+    
+    if $show_powerline; then
+        powerline_right_icon_thin=$(get_tmux_option "@ultimate-theme-powerline-right-icon-thin" "")
+    fi       
+
+    echo "CPU: $cpu_usage #[bg=${CYAN},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin} MEM: $mem_usage  " 
 }
 
 main
