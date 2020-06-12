@@ -11,6 +11,10 @@ A dark theme for [tmux](https://github.com/tmux/tmux/wiki)'s status bar.
     -   [Manual Installation](#manual-installation)
 4.  [List features support](#list-features-support)
 5.  [Configuration](#configuration)
+    -   [Color](#color)
+    -   [Optional](#optional)
+    -   [Format information](#format-information)
+    -   [Icon/Symbol](#iconsymbol)
 6.  [Known Issues](#known-issues)
 
 ## Introduction
@@ -72,23 +76,77 @@ This theme is based on some features of [Dracula tmux's theme](https://github.co
 
 ## List features support
 
-| **Feature**                                                            | **Linux/OpenBSD support** |  **Mac support**   | **Window's Cygwin, MinGW, MSYS** |
-| ---------------------------------------------------------------------- | :-----------------------: | :----------------: | :------------------------------: |
-| Show [Powerline](https://github.com/ryanoasis/powerline-extra-symbols) |    :heavy_check_mark:     | :heavy_check_mark: |        :heavy_check_mark:        |
-| Show prefix                                                            |    :heavy_check_mark:     | :heavy_check_mark: |        :heavy_check_mark:        |
-| CPU & Memory usage info                                                |    :heavy_check_mark:     | :white_check_mark: |        :white_check_mark:        |
-| Date & Time                                                            |    :heavy_check_mark:     | :heavy_check_mark: |        :heavy_check_mark:        |
-| Network's IPv4 address                                                 |    :heavy_check_mark:     | :white_check_mark: |        :white_check_mark:        |
-| Network's SSID                                                         |    :heavy_check_mark:     | :heavy_check_mark: |        :white_check_mark:        |
-| Battery                                                                |    :heavy_check_mark:     | :heavy_check_mark: |        :white_check_mark:        |
+| **Feature**                                                                    | **Linux/OpenBSD**  |      **Mac**       | **Window's Cygwin, MinGW, MSYS** |
+| ------------------------------------------------------------------------------ | :----------------: | :----------------: | :------------------------------: |
+| Show [Powerline symbols](https://github.com/ryanoasis/powerline-extra-symbols) | :heavy_check_mark: | :heavy_check_mark: |        :heavy_check_mark:        |
+| Show prefix whenever press                                                     | :heavy_check_mark: | :heavy_check_mark: |        :heavy_check_mark:        |
+| CPU & Memory usage info                                                        | :heavy_check_mark: | :white_check_mark: |        :white_check_mark:        |
+| Date & Time                                                                    | :heavy_check_mark: | :heavy_check_mark: |        :heavy_check_mark:        |
+| Network's IPv4 address                                                         | :heavy_check_mark: | :white_check_mark: |        :white_check_mark:        |
+| Network's SSID                                                                 | :heavy_check_mark: | :heavy_check_mark: |        :white_check_mark:        |
+| Battery                                                                        | :heavy_check_mark: | :heavy_check_mark: |        :white_check_mark:        |
 
 ## Configuration
 
 You can customize to your needs by changing these options in `.tmux.conf`:
 
-### Colors settings
+```shell
+set -g <Option's name> <new value>
+```
 
----
+### Color
+
+| **Option's name**                 | **Description**                      | **Default value** |
+| --------------------------------- | ------------------------------------ | :---------------: |
+| `@ultimate-theme-color-black`     | Set your favourite `BLACK` color     |     `#232627`     |
+| `@ultimate-theme-color-white`     | Set your favourite `WHITE` color     |     `#fcfcfc`     |
+| `@ultimate-theme-color-red`       | Set your favourite `RED` color       |     `#ed1515`     |
+| `@ultimate-theme-color-green`     | Set your favourite `GREEN` color     |     `#11d418`     |
+| `@ultimate-theme-color-yellow`    | Set your favourite `YELLOW` color    |     `#E5C07B`     |
+| `@ultimate-theme-color-orange`    | Set your favourite `ORANGE` color    |     `#f67400`     |
+| `@ultimate-theme-color-blue`      | Set your favourite `BLUE` color      |     `#45a1ed`     |
+| `@ultimate-theme-color-magenta`   | Set your favourite `MAGENTA` color   |     `#9b59b6`     |
+| `@ultimate-theme-color-pink`      | Set your favourite `PINK` color      |     `#ff79c6`     |
+| `@ultimate-theme-color-cyan`      | Set your favourite `CYAN` color      |     `#18b495`     |
+| `@ultimate-theme-color-grey`      | Set your favourite `GREY` color      |     `#C1C4C3`     |
+| `@ultimate-theme-color-dark-grey` | Set your favourite `DARK_GREY` color |     `#3e4452`     |
+
+### Optional
+
+| **Option's name**                         | **Description**                                                         | **Default value** |
+| ----------------------------------------- | ----------------------------------------------------------------------- | :---------------: |
+| `@ultimate-theme-show-powerline`          | Choose to show [Powerline symbols](#list-features-support) or not       |      `true`       |
+| `@ultimate-theme-show-prefix`             | Choose to show [Prefix](#list-features-support) or not                  |      `true`       |
+| `@ultimate-theme-show-cpu-mem-info`       | Choose to show [CPU & Memory usage info](#list-features-support) or not |      `true`       |
+| `@ultimate-theme-show-date-time`          | Choose to show [Date & Time](#list-features-support) or not             |      `true`       |
+| `@ultimate-theme-show-network-ip-address` | Choose to show [Network's IPv4 address](#list-features-support) or not  |      `true`       |
+| `@ultimate-theme-show-network-id`         | Choose to show [Network's SSID](#list-features-support) or not          |      `true`       |
+| `@ultimate-theme-show-battery`            | Choose to show [Battery](#list-features-support) or not                 |      `true`       |
+
+### Format information
+
+| **Option's name**              | **Description**                                                                             | **Default value** |
+| ------------------------------ | ------------------------------------------------------------------------------------------- | :---------------: |
+| `@ultimate-theme-clock-format` | Set [Clock(Time)](#list-features-support) format based on [strftime](http://www.strfti.me/) |      `%H:%M`      |
+| `@ultimate-theme-date-format`  | Set [Date](#list-features-support) format based on [strftime](http://www.strfti.me/)        |  `%a, %e/%m/%Y`   |
+
+### Icon/Symbol
+
+| **Option's name**                           | **Description**                                                                       | **Default value**  |
+| ------------------------------------------- | ------------------------------------------------------------------------------------- | :----------------: |
+| `@ultimate-theme-powerline-left-icon`       | Set _Powerline's icon_ for _left side of status bar_                                  | `` or `u'\uE0B0'` |
+| `@ultimate-theme-powerline-left-icon-thin`  | Set _Powerline's thin icon_ for _left side of status bar_                             | `` or `u'\uE0B1'` |
+| `@ultimate-theme-powerline-right-icon`      | Set _Powerline's icon_ for _right side of status bar_                                 | `` or `u'\uE0B2'` |
+| `@ultimate-theme-powerline-right-icon-thin` | Set _Powerline's thin icon_ for _right side of status bar_                            | `` or `u'\uE0B3'` |
+| `@ultimate-theme-prefix-symbol`             | Set your favourite _Prefix_ symbol                                                    | `` or `u'\uF73F'` |
+| `@ultimate-theme-cpu-mem-icon`              | Set icon of [CPU & Memory usage info](#list-features-support)                         | `` or `u'\uF85A'` |
+| `@ultimate-theme-clock-icon`                | Set icon of [Time](#list-features-support)                                            | `` or `u'\uF017'` |
+| `@ultimate-theme-date-icon`                 | Set icon of [Date](#list-features-support)                                            | `` or `u'\uF073'` |
+| `@ultimate-theme-network-offline-icon`      | Set icon of [Network](#list-features-support) when in _Offline_ mode                  | `` or `u'\uF65A'` |
+| `@ultimate-theme-network-ethernet-icon`     | Set icon of [Network](#list-features-support) when in _Ethernet_ mode                 | `ﯱ` or `u'\uFBF1'` |
+| `@ultimate-theme-network-wifi-icon`         | Set icon of [Network](#list-features-support) when in _Wifi_ mode                     | `` or `u'\uF1EB'` |
+| `@ultimate-theme-battery-discharging-icon`  | Set icon of [Battery](#list-features-support) when in _DC (Direct Current)_ mode      | `` or `u'\uF583'` |
+| `@ultimate-theme-battery-ac-icon`           | Set icon of [Battery](#list-features-support) when in _AC (Alternating Current)_ mode | `` or `u'\uF0E7'` |
 
 #### Set your favourite `BLACK` color
 
@@ -258,13 +316,13 @@ You can customize to your needs by changing these options in `.tmux.conf`:
 -   _Default_: `` (or `u'\uF73F'` Nerd font hex code).
 -   _Depending on_: [`@ultimate-theme-show-prefix`.](#choose-to-show-prefix)
 
-#### Set [CPU & Memory usage info](#list-features-support) icon
+#### Set icon of [CPU & Memory usage info](#list-features-support)
 
 -   _Command_: `set -g @ultimate-theme-cpu-mem-icon <your symbol/icon: string>`
 -   _Default_: `` (or `u'\uF85A'` Powerline hex code)
 -   _Depending on_: [`@ultimate-theme-show-cpu-mem-info`](#choose-to-show-cpu--memory-usage-info)
 
-#### Set icon of [Clock (Time)](#list-features-support) when in _DC (Direct Current)_ mode
+#### Set icon of [Time](#list-features-support) when in _DC (Direct Current)_ mode
 
 -   _Command_: `set -g @ultimate-theme-clock-icon <your symbol/icon: string>`
 -   _Default_: `` (or `u'\uF017'` Powerline hex code)
