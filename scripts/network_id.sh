@@ -11,7 +11,7 @@ source "${CURRENT_DIR}/utils.sh"
 get_ssid()
 {
 	case $(uname -s) in
-		Linux)
+		Linux|*BSD*)
 			SSID=$(iw dev | sed -nr 's/^\t\tssid (.*)/\1/p')
 			if [ -n "$SSID" ]; then
 				printf '%s' "$SSID"
@@ -48,9 +48,9 @@ main()
 	    fi
 	done
 
-    local network_offline_icon=$(get_tmux_option "@ultimate-theme-network-offline-icon" "")
-    local network_ethernet_icon=$(get_tmux_option "@ultimate-theme-network-ethernet-icon" "ﯱ")
-    local network_wifi_icon=$(get_tmux_option "@ultimate-theme-network-wifi-icon" "")
+    local network_offline_icon=$(get_tmux_option "@ultimate-theme-icon-network-offline" "")
+    local network_ethernet_icon=$(get_tmux_option "@ultimate-theme-icon-network-ethernet" "ﯱ")
+    local network_wifi_icon=$(get_tmux_option "@ultimate-theme-icon-network-wifi" "")
 
     if [[ ${network} == "Offline" ]]; then
         echo "${network} ${network_offline_icon} "

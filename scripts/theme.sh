@@ -4,17 +4,17 @@
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 BLACK="#232627"
-WHITE="#fcfcfc"
-RED="#ed1515"
-GREEN="#11d418"
+WHITE="#FCFCFC"
+RED="#ED1515"
+GREEN="#11D418"
 YELLOW="#E5C07B"
-ORANGE="#f67400"
-BLUE="#45a1ed"
-MAGENTA="#9b59b6"
-PINK="#ff79c6"
-CYAN="#18b495"
+ORANGE="#F67400"
+BLUE="#45A1ED"
+MAGENTA="#9B59B6"
+PINK="#FF79C6"
+CYAN="#18B495"
 GREY="#C1C4C3"
-DARK_GREY="#3e4452"
+DARK_GREY="#3E4452"
 
 #-------------------------------- UTILS --------------------------------
 source "${CURRENT_DIR}/utils.sh"
@@ -41,7 +41,7 @@ main() {
     #-------------------------------- Optionals --------------------------------
     local show_powerline=$(get_tmux_option "@ultimate-theme-show-powerline" true)
     local show_prefix=$(get_tmux_option "@ultimate-theme-show-prefix" true)
-    local show_cpu_mem_info=$(get_tmux_option "@ultimate-theme-show-cpu-mem-info" true)
+    local show_cpu_mem_info=$(get_tmux_option "@ultimate-theme-show-cpu-mem" true)
     local show_date_time=$(get_tmux_option "@ultimate-theme-show-date-time" true)
     local show_network_id=$(get_tmux_option "@ultimate-theme-show-network-id" true)
     local show_network_ip_address=$(get_tmux_option "@ultimate-theme-show-network-ip-address" false)
@@ -49,32 +49,32 @@ main() {
 
     #-------------------------------- Information format --------------------------------
     # Date & time format
-    local clock_format=$(get_tmux_option "@ultimate-theme-clock-format" "%H:%M")
-    local date_format=$(get_tmux_option "@ultimate-theme-date-format" "%a, %e/%m/%Y")
+    local format_time=$(get_tmux_option "@ultimate-theme-format-time" "%H:%M")
+    local format_date=$(get_tmux_option "@ultimate-theme-format-date" "%a, %e/%m/%Y")
 
     #-------------------------------- Icon/Symbols --------------------------------
     # Powerline's symbols
-    local powerline_left_icon=""
-    local powerline_left_icon_thin="|"
-    local powerline_right_icon=""
-    local powerline_right_icon_thin="|"
+    local icon_powerline_icon=""
+    local icon_powerline_left_thin="|"
+    local icon_powerline_right=""
+    local icon_powerline_right_thin="|"
 
     if $show_powerline; then
-        powerline_left_icon=$(get_tmux_option "@ultimate-theme-powerline-left-icon" "")
-        powerline_left_icon_thin=$(get_tmux_option "@ultimate-theme-powerline-left-icon-thin" "")
-        powerline_right_icon=$(get_tmux_option "@ultimate-theme-powerline-right-icon" "")
-        powerline_right_icon_thin=$(get_tmux_option "@ultimate-theme-powerline-right-icon-thin" "")
+        icon_powerline_icon=$(get_tmux_option "@ultimate-theme-icon-powerline-left" "")
+        icon_powerline_left_thin=$(get_tmux_option "@ultimate-theme-icon-powerline-left-thin" "")
+        icon_powerline_right=$(get_tmux_option "@ultimate-theme-icon-powerline-right" "")
+        icon_powerline_right_thin=$(get_tmux_option "@ultimate-theme-icon-powerline-right-thin" "")
     fi
 
     # Window : Pane icon
-    local window_pane_icon=$(get_tmux_option "@ultimate-theme-window-pane-icon" "")
+    local icon_window_pane=$(get_tmux_option "@ultimate-theme-icon-window-pane" "")
 
     # Prefix icon
-    local prefix_symbol=$(get_tmux_option "@ultimate-theme-prefix-symbol" "")
+    local icon_prefix=$(get_tmux_option "@ultimate-theme-icon-prefix" "")
 
     # Date & Time icon
-    local time_icon=$(get_tmux_option "@ultimate-theme-time-icon" "")
-    local date_icon=$(get_tmux_option "@ultimate-theme-date-icon" "")
+    local icon_time=$(get_tmux_option "@ultimate-theme-icon-time" "")
+    local icon_date=$(get_tmux_option "@ultimate-theme-icon-date" "")
 
     #------------------------------------------------------------------------
     #-------------------------------- STYLINGS --------------------------------
@@ -111,16 +111,16 @@ main() {
     power_fg=${BLACK}
 
     # Session name
-    tmux set -ga status-left "#[bg=${BLUE},fg=${power_fg},nobold,nounderscore,noitalics]${powerline_left_icon}"
+    tmux set -ga status-left "#[bg=${BLUE},fg=${power_fg},nobold,nounderscore,noitalics]${icon_powerline_icon}"
     tmux set -ga status-left "#[bg=${BLUE},fg=${BLACK},bold] #S "
     power_fg=${BLUE}
 
     # Window index : Pane index
-    tmux set -ga status-left "#[bg=${GREY},fg=${power_fg},nobold,nounderscore,noitalics]${powerline_left_icon}"
-    tmux set -ga status-left "#[bg=${GREY},fg=${BLACK}, bold] ${window_pane_icon}  #I:#P "
+    tmux set -ga status-left "#[bg=${GREY},fg=${power_fg},nobold,nounderscore,noitalics]${icon_powerline_icon}"
+    tmux set -ga status-left "#[bg=${GREY},fg=${BLACK}, bold] ${icon_window_pane}  #I:#P "
     power_fg=${GREY}
 
-    tmux set -ga status-left "#[bg=${BLACK},fg=${power_fg},nobold,nounderscore,noitalics]${powerline_left_icon}"
+    tmux set -ga status-left "#[bg=${BLACK},fg=${power_fg},nobold,nounderscore,noitalics]${icon_powerline_icon}"
     # Separators
     tmux set -ga status-left "#[bg=${BLACK},fg=${BLACK},nobold,nounderscore,noitalics]  "
     power_fg=${BLACK}
@@ -136,34 +136,34 @@ main() {
 
     # Prefix
     if $show_prefix; then
-        # tmux set -ga status-right "#[bg=${power_bg},fg=${BLACK},nobold,nounderscore,noitalics]#{?client_prefix,${powerline_right_icon},}"
-        tmux set -ga status-right "#[bg=${BLACK},fg=${PINK}]#{?client_prefix, ${prefix_symbol} ,}"
+        # tmux set -ga status-right "#[bg=${power_bg},fg=${BLACK},nobold,nounderscore,noitalics]#{?client_prefix,${icon_powerline_right},}"
+        tmux set -ga status-right "#[bg=${BLACK},fg=${PINK}]#{?client_prefix, ${icon_prefix} ,}"
         power_bg=${BLACK}
     fi
-    # tmux set -ga status-right "#[bg=${BLACK},fg=${GREY},nobold,nounderscore,noitalics]#{?client_prefix,#[bg=${power_bg}],}${powerline_right_icon}"
+    # tmux set -ga status-right "#[bg=${BLACK},fg=${GREY},nobold,nounderscore,noitalics]#{?client_prefix,#[bg=${power_bg}],}${icon_powerline_right}"
 
     # CPU & MEM info
     if $show_cpu_mem_info; then
-        tmux set -ga status-right "#[bg=${power_bg},fg=${MAGENTA},nobold,nounderscore,noitalics]${powerline_right_icon}"
+        tmux set -ga status-right "#[bg=${power_bg},fg=${MAGENTA},nobold,nounderscore,noitalics]${icon_powerline_right}"
         tmux set -ga status-right "#[bg=${MAGENTA},fg=${WHITE}] #(${CURRENT_DIR}/cpu_mem_info.sh)"
         power_bg=${MAGENTA}
     fi
 
     # Date & Time
     if $show_date_time; then
-        tmux set -ga status-right "#[bg=${power_bg},fg=${GREY},nobold,nounderscore,noitalics]${powerline_right_icon}"
-        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK}] ${clock_format} ${time_icon}  "
-        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin}"
-        tmux set -ga status-right "#[bg=${GREY},fg${BLACK}] ${date_format} ${date_icon}  "
+        tmux set -ga status-right "#[bg=${power_bg},fg=${GREY},nobold,nounderscore,noitalics]${icon_powerline_right}"
+        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK}] ${format_time} ${icon_time}  "
+        tmux set -ga status-right "#[bg=${GREY},fg=${BLACK},nobold,nounderscore,noitalics]${icon_powerline_right_thin}"
+        tmux set -ga status-right "#[bg=${GREY},fg${BLACK}] ${format_date} ${icon_date}  "
         power_bg=${GREY}
     fi
 
     # Network's ID & IP address
     if $show_network_id; then
-        tmux set -ga status-right "#[bg=${power_bg},fg=${CYAN},nobold,nounderscore,noitalics]${powerline_right_icon}"
+        tmux set -ga status-right "#[bg=${power_bg},fg=${CYAN},nobold,nounderscore,noitalics]${icon_powerline_right}"
         if $show_network_ip_address; then
             tmux set -ga status-right "#[bg=${CYAN},fg=${BLACK}] #(${CURRENT_DIR}/network_ip-address.sh) "
-            tmux set -ga status-right "#[bg=${CYAN},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon_thin}"
+            tmux set -ga status-right "#[bg=${CYAN},fg=${BLACK},nobold,nounderscore,noitalics]${icon_powerline_right_thin}"
         fi
         tmux set -ga status-right "#[bg=${CYAN},fg=${BLACK}] #(${CURRENT_DIR}/network_id.sh) "
         power_bg=${CYAN}
@@ -171,7 +171,7 @@ main() {
 
     # Battery
     if $show_battery; then
-        tmux set -ga status-right "#[bg=${power_bg},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_right_icon}"
+        tmux set -ga status-right "#[bg=${power_bg},fg=${BLACK},nobold,nounderscore,noitalics]${icon_powerline_right}"
         tmux set -ga status-right "#[bg=${BLACK},fg=${ORANGE}] #(${CURRENT_DIR}/battery.sh) "
         power_bg=${BLACK}
     fi
@@ -194,13 +194,13 @@ main() {
 
     # Format Current Window
     tmux set -wg window-status-current-format ""
-    tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},nobold,nounderscore,noitalics]${powerline_left_icon}"
-    tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},bold] #I #[nobold,nounderscore,noitalics]${powerline_left_icon_thin}#[bold] #W #F "
-    tmux set -wga window-status-current-format "#[bg=${BLACK},fg=${YELLOW},nobold,nounderscore,noitalics]${powerline_left_icon}"
+    tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},nobold,nounderscore,noitalics]${icon_powerline_icon}"
+    tmux set -wga window-status-current-format "#[bg=${YELLOW},fg=${BLACK},bold] #I #[nobold,nounderscore,noitalics]${icon_powerline_left_thin}#[bold] #W #F "
+    tmux set -wga window-status-current-format "#[bg=${BLACK},fg=${YELLOW},nobold,nounderscore,noitalics]${icon_powerline_icon}"
 
     # Format remaining Windows
     tmux set -wg window-status-format ""
-    tmux set -wga window-status-format " #I #[nounderscore,noitalics]${powerline_left_icon_thin} #W #F "
+    tmux set -wga window-status-format " #I #[nounderscore,noitalics]${icon_powerline_left_thin} #W #F "
 }
 
 main
