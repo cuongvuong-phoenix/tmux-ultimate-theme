@@ -41,7 +41,7 @@ This theme is based on some features of [Dracula's tmux theme](https://github.co
 -   For **Linux** & **BSD** variants:
 
     -   **_bash_**, **_cut_**, **_tr_**, **_grep_**, **_sed_**, **_awk_**, **_jq_**: _Essentials_.
-    -   **_sysstat_**, **_procps_**: For [CPU & Memory usage info](#list-features-support).
+    -   **_sysstat_** _(for **mpstat** command)_, **_procps_** _(for **free** command)_: For [CPU & Memory usage info](#list-features-support).
     -   **_iw_**: For [Network's SSID](#list-features-support).
     -   **_ip_**: For [Network's IPv4 address](#list-features-support).
     -   **_acpi_**: For [Battery info](#list-features-support).
