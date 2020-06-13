@@ -50,6 +50,7 @@ This theme is based on some features of [Dracula's tmux theme](https://github.co
 -   For **Mac**:
 
     -   **_bash_**, **_cut_**, **_tr_**, **_grep_**, **_sed_**: _Essentials_
+    -   **_ip_**: For [Network's IPv4 address](#list-features-support).
     -   **_pmset_**: For [Battery info](#list-features-support)
         > All these packages should have already been installed by default on Mac. You can check for each one by running command `$ command -v <name of package>`
 
