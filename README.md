@@ -105,20 +105,22 @@ set -g <option's name> <new value>
 
 ### Color
 
+> <u>_Note_</u>: Make sure color's value is always **lower case** or tmux won't understand your color.
+
 | **Option's name**                 | **Description**                      | **Default value** |
 | --------------------------------- | ------------------------------------ | :---------------: |
 | `@ultimate-theme-color-black`     | Set your favourite `BLACK` color     |     `#232627`     |
-| `@ultimate-theme-color-white`     | Set your favourite `WHITE` color     |     `#FCFCFC`     |
-| `@ultimate-theme-color-red`       | Set your favourite `RED` color       |     `#ED1515`     |
-| `@ultimate-theme-color-green`     | Set your favourite `GREEN` color     |     `#11D418`     |
-| `@ultimate-theme-color-yellow`    | Set your favourite `YELLOW` color    |     `#E5C07B`     |
-| `@ultimate-theme-color-orange`    | Set your favourite `ORANGE` color    |     `#F67400`     |
-| `@ultimate-theme-color-blue`      | Set your favourite `BLUE` color      |     `#45A1ED`     |
-| `@ultimate-theme-color-magenta`   | Set your favourite `MAGENTA` color   |     `#9B59B6`     |
-| `@ultimate-theme-color-pink`      | Set your favourite `PINK` color      |     `#FF79C6`     |
-| `@ultimate-theme-color-cyan`      | Set your favourite `CYAN` color      |     `#18B495`     |
-| `@ultimate-theme-color-grey`      | Set your favourite `GREY` color      |     `#C1C4C3`     |
-| `@ultimate-theme-color-dark-grey` | Set your favourite `DARK_GREY` color |     `#3E4452`     |
+| `@ultimate-theme-color-white`     | Set your favourite `WHITE` color     |     `#fcfcfc`     |
+| `@ultimate-theme-color-red`       | Set your favourite `RED` color       |     `#ed1515`     |
+| `@ultimate-theme-color-green`     | Set your favourite `GREEN` color     |     `#11d418`     |
+| `@ultimate-theme-color-yellow`    | Set your favourite `YELLOW` color    |     `#e5c07b`     |
+| `@ultimate-theme-color-orange`    | Set your favourite `ORANGE` color    |     `#f67400`     |
+| `@ultimate-theme-color-blue`      | Set your favourite `BLUE` color      |     `#45a1ed`     |
+| `@ultimate-theme-color-magenta`   | Set your favourite `MAGENTA` color   |     `#9b59b6`     |
+| `@ultimate-theme-color-pink`      | Set your favourite `PINK` color      |     `#ff79c6`     |
+| `@ultimate-theme-color-cyan`      | Set your favourite `CYAN` color      |     `#18b495`     |
+| `@ultimate-theme-color-grey`      | Set your favourite `GREY` color      |     `#c1c4c3`     |
+| `@ultimate-theme-color-dark-grey` | Set your favourite `DARK_GREY` color |     `#3e4452`     |
 
 ### Optional
 

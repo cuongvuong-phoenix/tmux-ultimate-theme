@@ -55,7 +55,7 @@ main() {
         icon_powerline_right_thin=$(get_tmux_option "@ultimate-theme-icon-powerline-right-thin" "")
     fi       
 
-    echo "CPU: ${cpu_usage} #[bg=${CYAN},fg=${BLACK},nobold,nounderscore,noitalics]${icon_powerline_right_thin} MEM: ${mem_usage} ${icon_cpu_mem} " 
+    echo "CPU: ${cpu_usage} ${icon_powerline_right_thin} MEM: ${mem_usage} ${icon_cpu_mem} " 
 }
 
 main
