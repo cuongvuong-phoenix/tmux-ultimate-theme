@@ -54,7 +54,7 @@ This theme is based on some features of [Dracula's tmux theme](https://github.co
     -   **_pmset_**: For [Battery info](#list-features-support)
         > All these packages should have already been installed by default on Mac. You can check for each one by running command `$ command -v <name of package>`
 
--   [**Nerd Font**](https://github.com/ryanoasis/nerd-fonts) (mine is [**_FiraCode Nerd Font_**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)).
+-   [**Nerd Font**](https://github.com/ryanoasis/nerd-fonts) (mine is [**_JetBrainsMono Nerd Font_**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)).
 -   A **Terminal** that support **True color** (mine is [**_Alacritty_**](https://github.com/alacritty/alacritty) with ligatures support).
     > Remember to [turn on True color support inside **Tmux**](https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/)
 
