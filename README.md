@@ -4,18 +4,18 @@ A dark theme for [tmux](https://github.com/tmux/tmux/wiki)'s status bar.
 
 ## Table of Contents
 
-1.  [Introduction](#introduction)
-2.  [List OS support](#list-os-support)
-3.  [Requirements](#requirements)
-4.  [Installation](#installation)
-    -   [Installation with Tmux Plugin Manager](#installation-with-tmux-plugin-manager-recommended)
-    -   [Manual Installation](#manual-installation)
-5.  [Configuration](#configuration)
-    -   [Color](#color)
-    -   [Optional](#optional)
-    -   [Format information](#format-information)
-    -   [Icon](#icon)
-6.  [Known Issues](#known-issues)
+1. [Introduction](#introduction)
+2. [List OS support](#list-os-support)
+3. [Requirements](#requirements)
+4. [Installation](#installation)
+    - [Install with Tmux Plugin Manager](#install-with-tmux-plugin-manager-recommended)
+    - [Manual Installation](#manual-installation)
+5. [Configuration](#configuration)
+    - [Color](#color)
+    - [Optional](#optional)
+    - [Format information](#format-information)
+    - [Icon](#icon)
+6. [Known Issues](#known-issues)
 
 ## Introduction
 
@@ -29,70 +29,75 @@ This theme is based on some features of [Dracula's tmux theme](https://github.co
 | ------------------------------------------------------------------------------ | :----------------: | :----------------: | :----------------: | :-----------------------------------: |
 | Show [Powerline symbols](https://github.com/ryanoasis/powerline-extra-symbols) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :heavy_check_mark:           |
 | Show prefix whenever press                                                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :heavy_check_mark:           |
-| CPU & Memory usage info                                                        | :heavy_check_mark: | :heavy_check_mark: | :white_check_mark: |          :white_check_mark:           |
+| CPU & Memory usage info                                                        | :heavy_check_mark: | :heavy_check_mark: | :x: |          :x:           |
 | Date & Time                                                                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :heavy_check_mark:           |
-| Network's IPv4 address                                                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :white_check_mark:           |
-| Network's SSID                                                                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :white_check_mark:           |
-| Battery                                                                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :white_check_mark:           |
+| Network's IPv4 address                                                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :x:           |
+| Network's SSID                                                                 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :x:           |
+| Battery                                                                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |          :x:           |
 
 ## Requirements
 
--   **Tmux** **_version 2.5+_**, running inside **_Linux_**, **_BSD_** variants, **_Mac_** or **_Windows_** (_Cygwin_, _MinGW_, _MSYS_).
--   For **Linux** & **BSD** variants:
+- **Tmux** **_version 2.5+_**, running inside **Linux**, **BSD** variants, **Mac** or **Windows** (via _Cygwin_, _MinGW_, _MSYS_).
+- For **Linux** & **BSD** variants:
 
-    -   **_bash_**, **_cut_**, **_tr_**, **_grep_**, **_sed_**, **_awk_**, **_jq_**: _Essentials_.
-    -   **_sysstat_** _(for **mpstat** command)_, **_procps_** _(for **free** command)_: For [CPU & Memory usage info](#list-features-support).
-    -   **_iw_**: For [Network's SSID](#list-features-support).
-    -   **_ip_**: For [Network's IPv4 address](#list-features-support).
-    -   **_acpi_**: For [Battery info](#list-features-support).
-        > All these packages should have already been installed by default on your distro. You can check for each one by running command `$ command -v <name of package>`
+  - `bash`, `cut`, `tr`, `grep`, `sed`, `awk`, `jq`: Essentials.
+  - `sysstat` _(`mpstat` command)_, `procps` _(`free` command)_: For [CPU & Memory usage info](#list-os-support).
+  - `iw`: For [Network's SSID](#list-os-support).
+  - `ip`: For [Network's IPv4 address](#list-os-support).
+  - `acpi`: For [Battery info](#list-os-support).
 
--   For **Mac**:
+  > All these packages should have already been installed by default on your distro. You can check for each one by running command `$ command -v <name of package>`
 
-    -   **_bash_**, **_cut_**, **_tr_**, **_grep_**, **_sed_**: _Essentials_
-    -   **_ip_**: For [Network's IPv4 address](#list-features-support).
-    -   **_pmset_**: For [Battery info](#list-features-support)
-        > All these packages should have already been installed by default on Mac. You can check for each one by running command `$ command -v <name of package>`
+- For **Mac**:
 
--   [**Nerd Font**](https://github.com/ryanoasis/nerd-fonts) (mine is [**_JetBrainsMono Nerd Font_**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)).
--   A **Terminal** that support **True color** (mine is [**_Alacritty_**](https://github.com/alacritty/alacritty) with ligatures support).
-    > Remember to [turn on True color support inside **Tmux**](https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/)
+  - `bash`, `cut`, `tr`, `grep`, `sed`: Essentials.
+  - `ip`: For [Network's IPv4 address](#list-os-support).
+  - `pmset`: For [Battery info](#list-os-support).
+
+  > All these packages should have already been installed by default on Mac. You can check for each one by running command `$ command -v <name of package>`
+
+- [**Nerd Font**](https://github.com/ryanoasis/nerd-fonts) (mine is [**_JetBrainsMono Nerd Font_**](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)).
+- A **Terminal** that supports _True color_ (mine is [**_Alacritty_**](https://github.com/alacritty/alacritty)).
+  > Remember to [turn on True color support inside **Tmux**](https://bruinsslot.jp/post/how-to-enable-true-color-for-neovim-tmux-and-gnome-terminal/)
 
 ## Installation
 
-> Only choose 1 methods.
+> Only choose 1 method.
 
-### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
+### Install with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
--   Add plugin to the list of TPM plugins in your `.tmux.conf`:
-
-    ```shell
-    set -g @plugin 'vuong-cuong-phoenix/tmux-ultimate-theme'
-    ```
-
--   Reload your `.tmux.conf`:
+- Add plugin to the list of TPM plugins in your `.tmux.conf`:
 
     ```shell
-    $ tmux source <path to your .tmux.conf file>
+    set -g @plugin 'cuongvuong-phoenix/tmux-ultimate-theme'
     ```
 
--   Install the plugin by pressing `prefix + I` when inside of _Tmux_.
+- Reload your `.tmux.conf`:
+
+    ```shell
+    tmux source <path to your .tmux.conf file>
+    ```
+
+- Install the plugin by pressing `prefix + I` when inside of _Tmux_.
 
 ### Manual Installation
 
--   Clone the repo:
+- Clone the repo:
+
     ```shell
-    $ git clone https://github.com/vuong-cuong-phoenix/tmux-ultimate-theme.git <your path>
+    git clone https://github.com/cuongvuong-phoenix/tmux-ultimate-theme.git <your path>
     ```
--   Add this line to the bottom of your `.tmux.conf`:
+
+- Add this line to the bottom of your `.tmux.conf`:
 
     ```shell
     run-shell <your path>/tmux-ultimate-theme.tmux
     ```
 
--   Reload your `.tmux.conf`:
+- Reload your `.tmux.conf`:
+
     ```shell
-    $ tmux source <path to your .tmux.conf file>
+    tmux source <path to your .tmux.conf file>
     ```
 
 ## Configuration
@@ -126,13 +131,13 @@ set -g <option's name> <new value>
 
 | **Option's name**                         | **Description**                                                         | **Default value** |
 | ----------------------------------------- | ----------------------------------------------------------------------- | :---------------: |
-| `@ultimate-theme-show-powerline`          | Choose to show [Powerline symbols](#list-features-support) or not       |      `true`       |
-| `@ultimate-theme-show-prefix`             | Choose to show [Prefix](#list-features-support) or not                  |      `true`       |
-| `@ultimate-theme-show-cpu-mem`            | Choose to show [CPU & Memory usage info](#list-features-support) or not |      `true`       |
-| `@ultimate-theme-show-date-time`          | Choose to show [Date & Time](#list-features-support) or not             |      `true`       |
-| `@ultimate-theme-show-network-ip-address` | Choose to show [Network's IPv4 address](#list-features-support) or not  |      `true`       |
-| `@ultimate-theme-show-network-id`         | Choose to show [Network's SSID](#list-features-support) or not          |      `true`       |
-| `@ultimate-theme-show-battery`            | Choose to show [Battery info](#list-features-support) or not            |      `true`       |
+| `@ultimate-theme-show-powerline`          | Choose to show [Powerline symbols](#list-os-support) or not       |      `true`       |
+| `@ultimate-theme-show-prefix`             | Choose to show [Prefix](#list-os-support) or not                  |      `true`       |
+| `@ultimate-theme-show-cpu-mem`            | Choose to show [CPU & Memory usage info](#list-os-support) or not |      `true`       |
+| `@ultimate-theme-show-date-time`          | Choose to show [Date & Time](#list-os-support) or not             |      `true`       |
+| `@ultimate-theme-show-network-ip-address` | Choose to show [Network's IPv4 address](#list-os-support) or not  |      `true`       |
+| `@ultimate-theme-show-network-id`         | Choose to show [Network's SSID](#list-os-support) or not          |      `true`       |
+| `@ultimate-theme-show-battery`            | Choose to show [Battery info](#list-os-support) or not            |      `true`       |
 
 ### Format information
 
@@ -166,4 +171,4 @@ set -g <option's name> <new value>
 
 ## Known Issues
 
-Feel free to open [Issues](https://github.com/vuong-cuong-phoenix/tmux-ultimate-theme/issues) when you have any trouble with the plugin or you just want to request new features.
+Feel free to open [Issues](https://github.com/cuongvuong-phoenix/tmux-ultimate-theme/issues) when you have any trouble with the plugin or you just want to request new features.
