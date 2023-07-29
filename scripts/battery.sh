@@ -52,7 +52,6 @@ main() {
     if [[ ${battery_status} !=  "discharging" ]]; then
         icon_battery=$(get_tmux_option "@ultimate-theme-icon-battery-ac" "")
     else
-        # icon_battery=$(get_tmux_option "@ultimate-theme-icon-battery-discharging" "")
         if [ ${battery_percentage} -gt 75 ]; then
             icon_battery=$(get_tmux_option "@ultimate-theme-icon-battery-discharging-4" "")
         elif [ ${battery_percentage} -gt 50 ]; then

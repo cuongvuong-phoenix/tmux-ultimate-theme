@@ -49,7 +49,7 @@ main() {
     local show_powerline=$(get_tmux_option "@ultimate-theme-show-powerline" true)
 
     local icon_powerline_right_thin="|"
-    local icon_cpu_mem=$(get_tmux_option "@ultimate-theme-icon-cpu-mem" "")
+    local icon_cpu_mem=$(get_tmux_option "@ultimate-theme-icon-cpu-mem" "󰍛")
     
     if ${show_powerline}; then
         icon_powerline_right_thin=$(get_tmux_option "@ultimate-theme-icon-powerline-right-thin" "")

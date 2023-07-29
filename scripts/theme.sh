@@ -70,7 +70,7 @@ main() {
     local icon_window_pane=$(get_tmux_option "@ultimate-theme-icon-window-pane" "")
 
     # Prefix icon
-    local icon_prefix=$(get_tmux_option "@ultimate-theme-icon-prefix" "")
+    local icon_prefix=$(get_tmux_option "@ultimate-theme-icon-prefix" "󰉀")
 
     # Date & Time icon
     local icon_time=$(get_tmux_option "@ultimate-theme-icon-time" "")

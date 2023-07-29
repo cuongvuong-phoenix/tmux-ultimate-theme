@@ -48,8 +48,8 @@ main()
 	    fi
 	done
 
-    local network_offline_icon=$(get_tmux_option "@ultimate-theme-icon-network-offline" "")
-    local network_ethernet_icon=$(get_tmux_option "@ultimate-theme-icon-network-ethernet" "ﯱ")
+    local network_offline_icon=$(get_tmux_option "@ultimate-theme-icon-network-offline" "󰅛")
+    local network_ethernet_icon=$(get_tmux_option "@ultimate-theme-icon-network-ethernet" "󰛳")
     local network_wifi_icon=$(get_tmux_option "@ultimate-theme-icon-network-wifi" "")
 
     if [[ ${network} == "Offline" ]]; then
